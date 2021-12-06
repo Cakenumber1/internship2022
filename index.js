@@ -1,4 +1,7 @@
 function sumOdd(last) {
+    if (!(last & 1)) {
+        last -= 1;
+    }
     return Math.pow(((1 + last) / 2), 2);
 }
 function reverse(str) {
