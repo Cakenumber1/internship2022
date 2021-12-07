@@ -1,3 +1,12 @@
+var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
+    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
+        if (ar || !(i in from)) {
+            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+            ar[i] = from[i];
+        }
+    }
+    return to.concat(ar || Array.prototype.slice.call(from));
+};
 function sumOdd(last) {
     if (!(last & 1)) {
         last -= 1;
@@ -11,7 +20,19 @@ function compareStrings(str1, str2) {
     return str1.toLowerCase() === str2.toLowerCase();
 }
 function getFirstAndLast(arr) {
-    arr.splice(1, arr.length - 2);
+    var ans;
+    (arr.length > 2) ? ans = [arr[0], arr[arr.length - 1]] : ans = arr;
+    return ans;
+}
+function getFirstAndLastSplice(arr) {
+    var ans = __spreadArray([], arr, true);
+    ans.splice(1, arr.length - 2);
+    return ans;
+}
+function getFirstAndLastSlice(arr) {
+    if (arr.length > 2) {
+        return arr.slice(0, 1).concat(arr.slice(-1));
+    }
     return arr;
 }
 function fillArray(arr) {
