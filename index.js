@@ -1,12 +1,3 @@
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
 function sumOdd(last) {
     if (!(last & 1)) {
         last -= 1;
@@ -25,7 +16,7 @@ function getFirstAndLast(arr) {
     return ans;
 }
 function getFirstAndLastSplice(arr) {
-    var ans = __spreadArray([], arr, true);
+    var ans = [...arr];
     ans.splice(1, arr.length - 2);
     return ans;
 }
