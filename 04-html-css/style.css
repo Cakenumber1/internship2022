@@ -234,6 +234,7 @@ svg {
     border-top: 1.5px solid grey;
     padding-top: 7px;
 }
+
 .comment:not(:first-child) .comment__img {
     padding-top: 7px;
 }
@@ -256,9 +257,12 @@ svg {
 .comment-create__text-field {
     border-radius: 7px;
     display: flex;
-    align-items: center;
     width: 100%;
     background-color: var(--color-buttons-back);
+}
+
+.textarea-attachments {
+    padding-top: 10px;
 }
 
 #comment-create__comment-text {
