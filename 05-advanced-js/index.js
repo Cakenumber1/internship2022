@@ -2,16 +2,16 @@ function sequence (start = 0, steps = 1) {
   let place = start
   return function () {
     place += steps
-    return place - steps
+    return place
   }
 }
 
 const firstTest = sequence()
 const firstTest2 = sequence(3, 6)
-console.log(firstTest()) // 0
 console.log(firstTest()) // 1
-console.log(firstTest2()) // 3
+console.log(firstTest()) // 2
 console.log(firstTest2()) // 9
+console.log(firstTest2()) // 15
 
 // Function.prototype is read only, properties should not be added
 // sum.myBind = function ... тоже работает
