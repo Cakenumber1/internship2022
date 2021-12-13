@@ -1,7 +1,10 @@
-let tx = document.getElementById('comment-create__comment-text');
+let tx = document.getElementsByClassName('comment-create__comment-text');
 
-tx.setAttribute('style', 'height:' + (tx.scrollHeight) + 'px;overflow-y:hidden;');
-tx.addEventListener("input", onInput, false);
+
+for (let i = 0; i < tx.length; i++) {
+  tx[i].setAttribute('style', 'height:' + (tx[i].scrollHeight) + 'px;overflow-y:hidden;');
+  tx[i].addEventListener("input", onInput, false);
+}
 
 function onInput() {
   this.style.height = 'auto';
@@ -17,9 +20,14 @@ function showComments() {
   }
 }
 
-function like(elem) {
-  let lk = elem.getElementsByClassName('like-color')[0];
-  let c = elem.getElementsByClassName('likes__amount')[0];
+let likes = document.getElementsByClassName('like');
+for (let i = 0; i < likes.length; i++) {
+  likes[i].addEventListener("click", like);
+}
+
+function like() {
+  let lk = this.getElementsByClassName('like-color')[0];
+  let c = this.getElementsByClassName('likes__amount')[0];
   if (lk.getAttribute('fill') == 'red') {
     lk.setAttribute('fill', 'currentColor')
     c.innerText = ((parseInt(c.innerText) - 1) > 0) ? parseInt(c.innerText) - 1: 0
