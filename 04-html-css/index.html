@@ -49,8 +49,8 @@
         </div>
         <div class="post__bottom-actions">
             <div class="post__bottom-buttons color-buttons">
-                <a onclick="like(this)">
-                    <span class="post__likes" aria-hidden="true">
+                <a class="post__bottom-button">
+                    <span class="post__likes like" aria-hidden="true">
                         <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" fill="red">
                             <g fill="none" fill-rule="evenodd">
                                 <path d="M0 0h24v24H0z"></path>
@@ -62,7 +62,7 @@
                         <div class="likes__amount">234</div>
                     </span>
                 </a>
-                <a>
+                <a class="post__bottom-button">
                     <span class="post__comments" aria-hidden="true">
                         <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                             <g fill="none" fill-rule="evenodd">
@@ -74,7 +74,7 @@
                         33
                     </span>
                 </a>
-                <a>
+                <a class="post__bottom-button">
                     <span class="post__reposts">
                         <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                             <g fill="none" fill-rule="evenodd">
@@ -127,7 +127,7 @@
                 </div>
                 <div class="comment__right sup">
                     <a class="comment__report">x</a>
-                    <a class="comment__likes" onclick="like(this)">
+                    <a class="comment__likes like">
                         <span class="post__likes" aria-hidden="true">
                             <svg height="21" width="21" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <g>
@@ -159,7 +159,7 @@
                 </div>
                 <div class="comment__right sup">
                     <a class="comment__report">x</a>
-                    <a class="comment__likes" onclick="like(this)">
+                    <a class="comment__likes">
                         <span class="post__likes" aria-hidden="true">
                             <svg height="21" width="21" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <g>
@@ -190,7 +190,7 @@
                 </div>
                 <div class="comment__right sup">
                     <a class="comment__report">x</a>
-                    <a class="comment__likes" onclick="like(this)">
+                    <a class="comment__likes">
                         <span class="post__likes" aria-hidden="true">
                             <svg height="21" width="21" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <g>
@@ -210,7 +210,7 @@
                 <img src="images/WiLu70o20oU.jpg" alt="">
             </div>
             <div class="comment-create__text-field">
-                <textarea id="comment-create__comment-text" rows="1" placeholder="Написать комментарий..."></textarea>
+                <textarea class="comment-create__comment-text" rows="1" placeholder="Написать комментарий..."></textarea>
                 <div class="textarea-attachments">
                     <svg height="18" viewBox="0 0 32 32" width="18" xmlns="http://www.w3.org/2000/svg">
                         <g fill="none" fill-rule="evenodd">
