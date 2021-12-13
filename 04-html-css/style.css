@@ -133,7 +133,7 @@ svg {
     display: flex;
 }
 
-.post__bottom-buttons a, .comment__bottom a {
+.post__bottom-button, .comment__time, .comment__reply-link, .comment__repost-link {
     text-decoration: none;
 }
 
@@ -160,7 +160,7 @@ svg {
     padding: 14px 20px 0px;
 }
 
-.comments-order select {
+.comments-order__custom-select {
     cursor: pointer;
     background: none;
     border: none;
@@ -244,10 +244,6 @@ svg {
     color: var(--color-text-main)
 }
 
-.comment__bottom a {
-    text-decoration: none;
-}
-
 .comment-create {
     padding: 7px 24px 7px 14px;
     display: flex;
@@ -265,7 +261,7 @@ svg {
     padding-top: 10px;
 }
 
-#comment-create__comment-text {
+.comment-create__comment-text {
     box-sizing: border-box;
     width: 100%;
     height: 34px;
