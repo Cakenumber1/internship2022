@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>04-html-css</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="timeline">
+    <div class="post" id="post_1">
+        <div class="post__header">
+            <div class="post__header__left">
+                <a class="post__header__img">
+                    <img src="./images/nenp-m4u7C0.jpg" alt="">
+                </a>
+                <div class="post__header__info">
+                    <a class="post__author underline bold">Образовач</a>
+                    <a class="post__date sup underlines">два часа назад</a>
+                </div>
+            </div>
+            <div class="post__header__options">
+                <div class="options-menu">
+                    <span class="options-icon">
+                    <svg fill="none" height="16" viewBox="0 0 20 20" width="16" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="currentColor">
+                            <path d="M10.001 7.8c-1.215 0-2.201 0.985-2.201 2.2s0.986 2.2 2.201 2.2c1.215 0 2.199-0.985 2.199-2.2s-0.984-2.2-2.199-2.2zM3.001 7.8c-1.215 0-2.201 0.985-2.201 2.2s0.986 2.2 2.201 2.2c1.215 0 2.199-0.986 2.199-2.2s-0.984-2.2-2.199-2.2zM17.001 7.8c-1.215 0-2.201 0.985-2.201 2.2s0.986 2.2 2.201 2.2c1.215 0 2.199-0.985 2.199-2.2s-0.984-2.2-2.199-2.2z"></path>
+                        </g>
+                    </svg>
+                </span>
+                </div>
+                <div class="dropdown-content">
+                    <a>Это неинтересно</a>
+                    <a>Сохранить в закладках</a>
+                    <a>Пожаловаться</a>
+                    <a>Уведомлять о записях</a>
+                </div>
+            </div>
+        </div>
+        <div class="post__content">
+            <div class="post__text">Кошке — молоко, собаке — кости, а нам с вами — тест на знание того, чем можно и
+                нельзя кормить домашних животных
+                <br>
+                <br><a class="un-underline" href="http://news.nplus1.ru/jYb6t">http://news.nplus1.ru/jYb6t</a>
+                <br>
+                <br>Партнерский тест
+            </div>
+            <div class="post__img"><img src="images/jniD0CD9Q4I.jpg" alt=""></div>
+        </div>
+        <div class="post__bottom-actions">
+            <div class="post__bottom-buttons color-buttons">
+                <a class="post__bottom-button">
+                    <span class="post__likes like" aria-hidden="true">
+                        <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" fill="red">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="M0 0h24v24H0z"></path>
+                                <path class="like-color"
+                                      d="M16 4a5.95 5.95 0 00-3.89 1.7l-.12.11-.12-.11A5.96 5.96 0 007.73 4 5.73 5.73 0 002 9.72c0 3.08 1.13 4.55 6.18 8.54l2.69 2.1c.66.52 1.6.52 2.26 0l2.36-1.84.94-.74c4.53-3.64 5.57-5.1 5.57-8.06A5.73 5.73 0 0016.27 4zm.27 1.8a3.93 3.93 0 013.93 3.92v.3c-.08 2.15-1.07 3.33-5.51 6.84l-2.67 2.08a.04.04 0 01-.04 0L9.6 17.1l-.87-.7C4.6 13.1 3.8 11.98 3.8 9.73A3.93 3.93 0 017.73 5.8c1.34 0 2.51.62 3.57 1.92a.9.9 0 001.4-.01c1.04-1.3 2.2-1.91 3.57-1.91z"
+                                      fill="currentColor" fill-rule="nonzero"></path>
+                            </g>
+                        </svg>
+                        <div class="likes__amount">234</div>
+                    </span>
+                </a>
+                <a class="post__bottom-button">
+                    <span class="post__comments" aria-hidden="true">
+                        <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="M0 0h24v24H0z"></path>
+                                <path d="M16.9 4H7.1c-1.15 0-1.73.11-2.35.44-.56.3-1 .75-1.31 1.31C3.11 6.37 3 6.95 3 8.1v5.8c0 1.15.11 1.73.44 2.35.3.56.75 1 1.31 1.31l.15.07c.51.25 1.04.35 1.95.37h.25v2.21c0 .44.17.85.47 1.16l.12.1c.64.55 1.6.52 2.21-.08L13.37 18h3.53c1.15 0 1.73-.11 2.35-.44.56-.3 1-.75 1.31-1.31.33-.62.44-1.2.44-2.35V8.1c0-1.15-.11-1.73-.44-2.35a3.17 3.17 0 00-1.31-1.31A4.51 4.51 0 0016.9 4zM6.9 5.8h9.99c.88 0 1.18.06 1.5.23.25.13.44.32.57.57.17.32.23.62.23 1.5v6.16c-.02.61-.09.87-.23 1.14-.13.25-.32.44-.57.57-.32.17-.62.23-1.5.23h-4.02a.9.9 0 00-.51.26l-3.47 3.4V17.1c0-.5-.4-.9-.9-.9H6.74a2.3 2.3 0 01-1.14-.23 1.37 1.37 0 01-.57-.57c-.17-.32-.23-.62-.23-1.5V7.74c.02-.61.09-.87.23-1.14.13-.25.32-.44.57-.57.3-.16.58-.22 1.31-.23z"
+                                      fill="currentColor" fill-rule="nonzero"></path>
+                            </g>
+                        </svg>
+                        33
+                    </span>
+                </a>
+                <a class="post__bottom-button">
+                    <span class="post__reposts">
+                        <svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                            <g fill="none" fill-rule="evenodd">
+                                <path d="M0 0h24v24H0z"></path>
+                                <path d="M12 3.73c-1.12.07-2 1-2 2.14v2.12h-.02a9.9 9.9 0 00-7.83 10.72.9.9 0 001.61.46l.19-.24a9.08 9.08 0 015.84-3.26l.2-.03.01 2.5a2.15 2.15 0 003.48 1.69l7.82-6.14a2.15 2.15 0 000-3.38l-7.82-6.13c-.38-.3-.85-.46-1.33-.46zm.15 1.79c.08 0 .15.03.22.07l7.82 6.14a.35.35 0 010 .55l-7.82 6.13a.35.35 0 01-.57-.28V14.7a.9.9 0 00-.92-.9h-.23l-.34.02c-2.28.14-4.4.98-6.12 2.36l-.17.15.02-.14a8.1 8.1 0 016.97-6.53.9.9 0 00.79-.9V5.87c0-.2.16-.35.35-.35z"
+                                      fill="currentColor" fill-rule="nonzero"></path>
+                            </g>
+                        </svg>
+                        <div>12</div>
+                    </span>
+                </a>
+            </div>
+            <div class="post__views sup">
+                <span class="views__icon">
+                    <svg fill="none" height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="currentColor">
+                            <path d="M9.5 8a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"></path>
+                            <path clip-rule="evenodd"
+                                  d="M15.5 8c0-1-3-5-7.5-5S.5 7 .5 8s3 5 7.5 5 7.5-4 7.5-5zm-4 0a3.5 3.5 0 11-7 0 3.5 3.5 0 017 0z"
+                                  fill-rule="evenodd"></path>
+                        </g>
+                    </svg>
+                </span>
+                <div>5.8K</div>
+            </div>
+        </div>
+        <div class="post__replies__header"></div>
+        <div class="comments-order">
+            <select class="comments-order__custom-select">
+                <option>Сначала интересные</option>
+                <option>Сначала новые</option>
+                <option>Сначала старые</option>
+            </select>
+        </div>
+        <div class="comments-list">
+            <div class="comment" id="comment_1">
+                <div class="comment__left">
+                    <div class="comment__img">
+                        <img src="images/p5t-xegi7Vo.jpg" alt="">
+                    </div>
+                    <div class="comment__content">
+                        <a class="comment__author underline bold">Дмитрий Коспит</a>
+                        <div class="comment__text">Зато есть созвездие Рыбов</div>
+                        <div class="comment__bottom">
+                            <a class="comment__time sup underline">два часа назад</a>
+                            <a class="comment__reply-link underline">Ответить</a>
+                            <a class="comment__repost-link underline">Поделиться</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment__right sup">
+                    <a class="comment__report">x</a>
+                    <a class="comment__likes like">
+                        <span class="post__likes" aria-hidden="true">
+                            <svg height="21" width="21" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <g>
+                                    <path class="like-color"
+                                          d="M16 4a5.95 5.95 0 00-3.89 1.7l-.12.11-.12-.11A5.96 5.96 0 007.73 4 5.73 5.73 0 002 9.72c0 3.08 1.13 4.55 6.18 8.54l2.69 2.1c.66.52 1.6.52 2.26 0l2.36-1.84.94-.74c4.53-3.64 5.57-5.1 5.57-8.06A5.73 5.73 0 0016.27 4zm.27 1.8a3.93 3.93 0 013.93 3.92v.3c-.08 2.15-1.07 3.33-5.51 6.84l-2.67 2.08a.04.04 0 01-.04 0L9.6 17.1l-.87-.7C4.6 13.1 3.8 11.98 3.8 9.73A3.93 3.93 0 017.73 5.8c1.34 0 2.51.62 3.57 1.92a.9.9 0 001.4-.01c1.04-1.3 2.2-1.91 3.57-1.91z"
+                                          fill="currentColor" fill-rule="evenodd"></path>
+                                </g>
+                            </svg>
+                            <div class="likes__amount">234</div>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="show-comments underline" onclick="showComments()">Показать следующие комментарии</div>
+            <div class="comment" id="comment_2">
+                <div class="comment__left">
+                    <div class="comment__img">
+                        <img src="images/bca5HctlUGM.jpg" alt="">
+                    </div>
+                    <div class="comment__content">
+                        <a class="comment__author underline bold">User User</a>
+                        <div class="comment__text">text<br>text2<br>text3</div>
+                        <div class="comment__bottom">
+                            <a class="comment__time sup underline">8 дек в 17:14</a>
+                            <a class="comment__reply-link underline">Ответить</a>
+                            <a class="comment__repost-link underline">Поделиться</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment__right sup">
+                    <a class="comment__report">x</a>
+                    <a class="comment__likes">
+                        <span class="post__likes" aria-hidden="true">
+                            <svg height="21" width="21" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <g>
+                                    <path class="like-color"
+                                          d="M16 4a5.95 5.95 0 00-3.89 1.7l-.12.11-.12-.11A5.96 5.96 0 007.73 4 5.73 5.73 0 002 9.72c0 3.08 1.13 4.55 6.18 8.54l2.69 2.1c.66.52 1.6.52 2.26 0l2.36-1.84.94-.74c4.53-3.64 5.57-5.1 5.57-8.06A5.73 5.73 0 0016.27 4zm.27 1.8a3.93 3.93 0 013.93 3.92v.3c-.08 2.15-1.07 3.33-5.51 6.84l-2.67 2.08a.04.04 0 01-.04 0L9.6 17.1l-.87-.7C4.6 13.1 3.8 11.98 3.8 9.73A3.93 3.93 0 017.73 5.8c1.34 0 2.51.62 3.57 1.92a.9.9 0 001.4-.01c1.04-1.3 2.2-1.91 3.57-1.91z"
+                                          fill="currentColor" fill-rule="evenodd"></path>
+                                </g>
+                            </svg>
+                            <div class="likes__amount">4</div>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="comment" id="comment_3">
+                <div class="comment__left">
+                    <div class="comment__img">
+                        <img src="images/bca5HctlUGM.jpg" alt="">
+                    </div>
+                    <div class="comment__content">
+                        <a class="comment__author underline bold">User User</a>
+                        <div class="comment__text">text<br>text2<br>text3</div>
+                        <div class="comment__bottom">
+                            <a class="comment__time sup underline">8 дек в 17:14</a>
+                            <a class="comment__reply-link underline">Ответить</a>
+                            <a class="comment__repost-link underline">Поделиться</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment__right sup">
+                    <a class="comment__report">x</a>
+                    <a class="comment__likes">
+                        <span class="post__likes" aria-hidden="true">
+                            <svg height="21" width="21" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <g>
+                                    <path class="like-color"
+                                          d="M16 4a5.95 5.95 0 00-3.89 1.7l-.12.11-.12-.11A5.96 5.96 0 007.73 4 5.73 5.73 0 002 9.72c0 3.08 1.13 4.55 6.18 8.54l2.69 2.1c.66.52 1.6.52 2.26 0l2.36-1.84.94-.74c4.53-3.64 5.57-5.1 5.57-8.06A5.73 5.73 0 0016.27 4zm.27 1.8a3.93 3.93 0 013.93 3.92v.3c-.08 2.15-1.07 3.33-5.51 6.84l-2.67 2.08a.04.04 0 01-.04 0L9.6 17.1l-.87-.7C4.6 13.1 3.8 11.98 3.8 9.73A3.93 3.93 0 017.73 5.8c1.34 0 2.51.62 3.57 1.92a.9.9 0 001.4-.01c1.04-1.3 2.2-1.91 3.57-1.91z"
+                                          fill="currentColor" fill-rule="evenodd"></path>
+                                </g>
+                            </svg>
+                            <div class="likes__amount">41</div>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="comment-create">
+            <div class="comment__img">
+                <img src="images/WiLu70o20oU.jpg" alt="">
+            </div>
+            <div class="comment-create__text-field">
+                <textarea class="comment-create__comment-text" rows="1" placeholder="Написать комментарий..."></textarea>
+                <div class="textarea-attachments">
+                    <svg height="18" viewBox="0 0 32 32" width="18" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="none" fill-rule="evenodd">
+                            <path fill="#999999"
+                                  d="M20.807 10.22l-2.030-2.029-10.15 10.148c-1.682 1.681-1.682 4.408 0 6.089s4.408 1.681 6.090 0l12.18-12.178c2.804-2.802 2.804-7.346 0-10.148-2.802-2.803-7.347-2.803-10.149 0l-12.788 12.787c-0.009 0.009-0.019 0.018-0.027 0.026-3.909 3.909-3.909 10.245 0 14.153 3.908 3.908 10.246 3.908 14.156 0 0.009-0.009 0.016-0.018 0.026-0.027l0.001 0.001 8.729-8.728-2.031-2.029-8.729 8.727c-0.009 0.008-0.018 0.018-0.026 0.026-2.784 2.783-7.312 2.783-10.096 0-2.783-2.783-2.783-7.31 0-10.093 0.010-0.009 0.019-0.018 0.028-0.026l-0.001-0.002 12.79-12.786c1.678-1.679 4.411-1.679 6.090 0s1.678 4.411 0 6.089l-12.18 12.178c-0.56 0.56-1.47 0.56-2.030 0-0.559-0.559-0.559-1.47 0-2.029l10.15-10.149z"></path>
+                        </g>
+                    </svg>
+                </div>
+                <div class="textarea-attachments">
+                    <svg height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="none" fill-rule="evenodd">
+                            <path fill="#999999"
+                                  d="M24 19v-11c0-0.828-0.337-1.58-0.879-2.121s-1.293-0.879-2.121-0.879h-3.465l-1.703-2.555c-0.182-0.27-0.486-0.445-0.832-0.445h-6c-0.326 0.002-0.64 0.158-0.832 0.445l-1.703 2.555h-3.465c-0.828 0-1.58 0.337-2.121 0.879s-0.879 1.293-0.879 2.121v11c0 0.828 0.337 1.58 0.879 2.121s1.293 0.879 2.121 0.879h18c0.828 0 1.58-0.337 2.121-0.879s0.879-1.293 0.879-2.121zM22 19c0 0.276-0.111 0.525-0.293 0.707s-0.431 0.293-0.707 0.293h-18c-0.276 0-0.525-0.111-0.707-0.293s-0.293-0.431-0.293-0.707v-11c0-0.276 0.111-0.525 0.293-0.707s0.431-0.293 0.707-0.293h4c0.346 0 0.65-0.175 0.832-0.445l1.703-2.555h4.93l1.703 2.555c0.192 0.287 0.506 0.443 0.832 0.445h4c0.276 0 0.525 0.111 0.707 0.293s0.293 0.431 0.293 0.707zM17 13c0-1.38-0.561-2.632-1.464-3.536s-2.156-1.464-3.536-1.464-2.632 0.561-3.536 1.464-1.464 2.156-1.464 3.536 0.561 2.632 1.464 3.536 2.156 1.464 3.536 1.464 2.632-0.561 3.536-1.464 1.464-2.156 1.464-3.536zM15 13c0 0.829-0.335 1.577-0.879 2.121s-1.292 0.879-2.121 0.879-1.577-0.335-2.121-0.879-0.879-1.292-0.879-2.121 0.335-1.577 0.879-2.121 1.292-0.879 2.121-0.879 1.577 0.335 2.121 0.879 0.879 1.292 0.879 2.121z"></path>
+                        </g>
+                    </svg>
+                </div>
+                <div class="textarea-attachments">
+                    <svg height="18" viewBox="0 0 24 24" width="18" xmlns="http://www.w3.org/2000/svg">
+                        <g fill="none" fill-rule="evenodd">
+                            <path fill="#999999"
+                                  d="M23 12c0-3.037-1.232-5.789-3.222-7.778s-4.741-3.222-7.778-3.222-5.789 1.232-7.778 3.222-3.222 4.741-3.222 7.778 1.232 5.789 3.222 7.778 4.741 3.222 7.778 3.222 5.789-1.232 7.778-3.222 3.222-4.741 3.222-7.778zM21 12c0 2.486-1.006 4.734-2.636 6.364s-3.878 2.636-6.364 2.636-4.734-1.006-6.364-2.636-2.636-3.878-2.636-6.364 1.006-4.734 2.636-6.364 3.878-2.636 6.364-2.636 4.734 1.006 6.364 2.636 2.636 3.878 2.636 6.364zM7.2 14.6c0 0 0.131 0.173 0.331 0.383 0.145 0.153 0.338 0.341 0.577 0.54 0.337 0.281 0.772 0.59 1.297 0.853 0.705 0.352 1.579 0.624 2.595 0.624s1.89-0.272 2.595-0.624c0.525-0.263 0.96-0.572 1.297-0.853 0.239-0.199 0.432-0.387 0.577-0.54 0.2-0.21 0.331-0.383 0.331-0.383 0.331-0.442 0.242-1.069-0.2-1.4s-1.069-0.242-1.4 0.2c-0.041 0.050-0.181 0.206-0.181 0.206-0.1 0.105-0.237 0.239-0.408 0.382-0.243 0.203-0.549 0.419-0.91 0.6-0.48 0.239-1.050 0.412-1.701 0.412s-1.221-0.173-1.701-0.413c-0.36-0.18-0.667-0.397-0.91-0.6-0.171-0.143-0.308-0.277-0.408-0.382-0.14-0.155-0.181-0.205-0.181-0.205-0.331-0.442-0.958-0.531-1.4-0.2s-0.531 0.958-0.2 1.4zM9 10c0.552 0 1-0.448 1-1s-0.448-1-1-1-1 0.448-1 1 0.448 1 1 1zM15 10c0.552 0 1-0.448 1-1s-0.448-1-1-1-1 0.448-1 1 0.448 1 1 1z"></path>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+            <div class="comment-create__send">
+                <svg width="34" height="34" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <g id="send_24__Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                        <g id="send_24__send_24">
+                            <path d="M0 0h24v24H0z"></path>
+                            <path d="M5.74 15.75a39.14 39.14 0 00-1.3 3.91c-.55 2.37-.95 2.9 1.11 1.78 2.07-1.13 12.05-6.69 14.28-7.92 2.9-1.61 2.94-1.49-.16-3.2C17.31 9.02 7.44 3.6 5.55 2.54c-1.89-1.07-1.66-.6-1.1 1.77.17.76.61 2.08 1.3 3.94a4 4 0 003 2.54l5.76 1.11a.1.1 0 010 .2L8.73 13.2a4 4 0 00-3 2.54z"
+                                  fill="#999999"></path>
+                        </g>
+                    </g>
+                </svg>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="main.js"></script>
+</html>
