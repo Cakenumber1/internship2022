@@ -38,3 +38,5 @@ function fillArrayAlt (arr) {
 function fillArrayMap (arr) {
   return arr.map(function (x) { return x.toString().length })
 }
+
+//commit
