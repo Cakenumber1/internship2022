@@ -8,41 +8,37 @@ class Animal {
   }
 
   say () {
-    return `${this.name} + says + ${this.phrase}`
+    return `${this.name} says ${this.phrase}`
   }
 }
 
 class Dog extends Animal {
-  constructor (name) {
-    super(name)
-    this.sound = 'wow'
-  }
+  static sound = 'wow'
 
   get phrase () {
-    return this.sound
+    return Dog.sound
   }
 }
 
 class Cat extends Animal {
-  constructor (name) {
-    super(name)
-    this.sound = 'meow'
-  }
+  static sound = 'meow'
 
   get phrase () {
-    return this.sound
+    return Cat.sound
   }
 }
 
 class Clock {
   constructor (options = 1000) {
     this.tickTimeout = options
+    this.timer = undefined
   }
 
-  start () {
-    setInterval(() => {
-      console.log('Вызов функции')
-    }, this.tickTimeout)
+  start (func) {
+    this.timer = setInterval(func, this.tickTimeout)
+  }
+  stop () {
+    clearInterval(this.timer)
   }
 }
 
@@ -54,7 +50,8 @@ class Cuboid {
   }
 
   get surfaceArea () {
-    return [2 * (this.l * this.h + this.l * this.w + this.w * this.h), this.volume]
+    const s = 2 * (this.l * this.h + this.l * this.w + this.w * this.h)
+    return [s, this.volume]
   }
 
   get volume () {
@@ -62,7 +59,6 @@ class Cuboid {
   }
 }
 
-// S = V = x^3
 class Cube extends Cuboid {
   constructor (x) {
     super(x, x, x)
