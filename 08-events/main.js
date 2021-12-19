@@ -68,8 +68,8 @@ function solve () {
 }
 
 function checkUnsolvable (matrix) {
-  let sum = 4
   const temp = matrix[0].concat(matrix[1]).concat(matrix[2]).concat(matrix[3])
+  let sum = Math.floor(temp.indexOf(null) / 4) + 1
   for (let i = temp.length - 1; i >= 0; i--) {
     for (let rev = i; rev < temp.length - 1; rev++) {
       if (temp[i] > temp[rev]) {
@@ -80,36 +80,45 @@ function checkUnsolvable (matrix) {
   return sum & 1
 }
 
-function generateMatrix (matrix) {
-  const array = matrix
+function generateMatrix (temp) {
+  const array = temp
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1))
     const temp = array[i]
     array[i] = array[j]
     array[j] = temp
   }
-  const ans = []
+  let ans = []
   for (let i = 0; i < 4; i++) {
     ans.push(array.slice(i * 4, (i + 1) * 4))
   }
-  while (checkUnsolvable(ans)) rotateMatrix(ans)
+  // это странно, написано, что ротация на 90 градусов превращает нерешаемую задачу в ту, что может быть решена
+  // но почему-то иногда вылетают матрицы, которые как не вращай, решения не имеют
+  let rotationCounter = 0
+  while (checkUnsolvable(ans)) {
+    rotateMatrix(ans)
+    rotationCounter++
+    if (rotationCounter > 3) {
+      ans = generateMatrix(temp)
+    }
+  }
   return ans
 }
 
 function rotateMatrix (matrix) {
   const l = matrix[0].length
-  for (let i = 0; i < l; i++) {
-    for (let j = i; j < l; j++) {
-      const temp = matrix[j][i]
-      matrix[j][i] = matrix[i][j]
-      matrix[i][j] = temp
+  for (let r = 0; r < l; r++) {
+    for (let c = r; c < l; c++) {
+      const temp = matrix[r][c]
+      matrix[r][c] = matrix[c][r]
+      matrix[c][r] = temp
     }
   }
-  for (let i = 0; i < l; i++) {
-    for (let j = 0, k = l - 1; j < k; j++, k--) {
-      const temp = matrix[j][i]
-      matrix[j][i] = matrix[k][i]
-      matrix[k][i] = temp
+  for (let r = 0; r < l; r++) {
+    for (let c = 0; c < l / 2; c++) {
+      const temp = matrix[r][l - c - 1]
+      matrix[r][l - c - 1] = matrix[r][c]
+      matrix[r][c] = temp
     }
   }
 }
