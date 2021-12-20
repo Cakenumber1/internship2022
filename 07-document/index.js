@@ -1,3 +1,3 @@
-export default function search (doc, tag) {
-  return Array.from(doc.querySelectorAll(tag))
+export default function search (doc, selector) {
+  return Array.from(doc.querySelectorAll(selector))
 }
