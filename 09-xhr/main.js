@@ -29,5 +29,5 @@ function abortRequest () {
   xhr.abort()
   abortBtn.classList.toggle('active')
   sendBtn.classList.toggle('active')
-  avatarScr.src = ''
+  avatar.src = ''
 }
