@@ -1,10 +1,11 @@
 export default function normalize () {
   const temp = Array.from(document.body.getElementsByTagName('*'))
   temp.forEach(e => {
-    const currentClass = e.className
-    if (currentClass !== '') {
-      e.className = toCamelCase(currentClass)
-    }
+    const classes = e.classList
+    classes.forEach(classname => {
+      classes.remove(classname)
+      classes.add(toCamelCase(classname))
+    })
   })
 }
 
