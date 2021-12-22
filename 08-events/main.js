@@ -54,8 +54,30 @@ function swapInWindow (targetElem, emptyElem) {
   emptyElem.innerText = temp
 }
 
+// одно и тоже получается по времени
 function checkSolved () {
-  return JSON.stringify(matrix) === JSON.stringify(ans)
+  // let start = new Date().getTime()
+  // let answ = JSON.stringify(matrix) === JSON.stringify(ans)
+  // let end = new Date().getTime()
+  // console.log(end - start)
+  // start = new Date().getTime()
+  // let answ2 = matrix.equals(ans)
+  // end = new Date().getTime()
+  // console.log(end - start)
+  return matrix.equals(ans)
+}
+
+Array.prototype.equals = function (array) {
+  for (let i = 0, l = this.length; i < l; i++) {
+    if (this[i] instanceof Array && array[i] instanceof Array) {
+      if (!this[i].equals(array[i])) {
+        return false
+      }
+    } else if (this[i] !== array[i]) {
+      return false
+    }
+  }
+  return true
 }
 
 function alertWin () {
