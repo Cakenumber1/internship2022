@@ -23,9 +23,7 @@ function sendRequestPromise () {
   const inputText = document.getElementById('input').value
   const temp = new PromisedXHR()
   temp.send('GET', url + inputText)
-    .then(r => {
-      avatar.src = r.avatar_url
-    })
+    .then(r => { avatar.src = r.avatar_url })
     .catch(() => {
       avatar.src = ''
       setTimeout(() => alert('Not found'), 10)
@@ -39,9 +37,7 @@ function sendRequestFetch () {
     .then(r => {
       if (r.status === 200) {
         r.json()
-          .then(inner => {
-            avatar.src = inner.avatar_url
-          })
+          .then(inner => { avatar.src = inner.avatar_url })
       } else {
         avatar.src = ''
         setTimeout(() => alert('Not found'), 10)
@@ -53,9 +49,7 @@ function sendRequestAxios () {
   avatar.src = './assets/3031256.png'
   const inputText = document.getElementById('input').value
   axios.get(url + inputText)
-    .then(r => {
-      avatar.src = r.data.avatar_url
-    })
+    .then(r => { avatar.src = r.data.avatar_url })
     .catch(() => {
       avatar.src = ''
       setTimeout(() => alert('Not found'), 10)

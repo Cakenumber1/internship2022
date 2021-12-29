@@ -24,7 +24,8 @@ function sendRequestPromise () {
   temp.send('GET', url + 'posts/' + inputText)
     .then(r => {
       const temp2 = new PromisedXHR()
-      temp2.send('GET', url + 'users/' + r.userId).then(console.log)
+      temp2.send('GET', url + 'users/' + r.userId)
+        .then(console.log)
     })
 }
 
@@ -33,12 +34,10 @@ function sendRequestFetch () {
   fetch(url + 'posts/' + inputText).then(r => {
     if (r.status === 200) {
       r.json()
-        .then(inner => {
-          fetch(url + 'users/' + inner.userId)
-            .then(r2 => {
-              r2.json().then(console.log)
-            })
-        })
+        .then(inner => fetch(url + 'users/' + inner.userId)
+          .then(r2 => r2.json()
+            .then(console.log))
+        )
     }
   })
 }
@@ -46,8 +45,7 @@ function sendRequestFetch () {
 function sendRequestAxios () {
   const inputText = document.getElementById('input').value
   axios.get(url + 'posts/' + inputText)
-    .then(r => {
-      axios.get(url + 'users/' + r.data.userId)
-        .then(r2 => console.log(r2.data))
-    })
+    .then(r => axios.get(url + 'users/' + r.data.userId)
+      .then(r2 => console.log(r2.data))
+    )
 }
