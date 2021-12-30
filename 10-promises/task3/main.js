@@ -35,18 +35,21 @@ class PromisedXHR {
     this.xhr.abort()
   }
 }
+
 let temp = new PromisedXHR()
 
 function sendRequestPromise () {
   temp = new PromisedXHR()
   const inputText = document.getElementById('input').value
-  temp.send('GET', url + inputText)
-    .then(console.log)
+  if (inputText) {
+    temp.send('GET', url + inputText)
+      .then(console.log)
+  }
 }
+
 const func1 = debounce(function() {
   temp.cancel()
   sendRequestPromise()
 }, 300, false);
 
 textbox.addEventListener('keyup', func1)
-
