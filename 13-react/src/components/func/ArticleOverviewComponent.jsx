@@ -13,11 +13,13 @@ function ArticleOverviewComponent({ data }) {
 }
 
 ArticleOverviewComponent.propTypes = {
-  title :  PropTypes.string,
-  content :  PropTypes.string,
-  user :  PropTypes.object,
-  createdAt :  PropTypes.string,
-  imageUrl :  PropTypes.string,
+  data: PropTypes.shape({
+    title :  PropTypes.string,
+    content :  PropTypes.string,
+    user :  PropTypes.object,
+    createdAt :  PropTypes.string,
+    imageUrl :  PropTypes.string,
+  })
 }
 
 export default ArticleOverviewComponent;
