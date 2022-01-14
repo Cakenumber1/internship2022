@@ -1,11 +1,15 @@
 import NavBarComponent from './NavBarComponent';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-function App ( {func} ) {
-  const [name] = useState(func);
+function App({func}) {
+  const [user, setUser] = useState('')
+  useEffect(() => {
+    setUser(func())
+  }, [func]) // or []
+
   return (
     <>
-      <NavBarComponent user={name}/>
+      <NavBarComponent user={user}/>
     </>
   );
 }

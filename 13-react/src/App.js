@@ -1,29 +1,31 @@
 import './App.css';
 import ArticleOverviewComponentFunc from './components/func/ArticleOverviewComponent';
 import ArticleOverviewComponentClass from './components/class/ArticleOverviewComponent';
-import AppWrapper from './components/func/App';
+import AppWrapperFunc from './components/func/App';
+import AppWrapperClass from './components/class/App';
 
-const data = {
-  title: 'title123',
-  content: 'contentText123',
-  user: {
-    username: 'Oleg',
-  },
-  createdAt: Date().toLocaleString(),
-  imageUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
+const title = 'title123'
+const content = 'contentText123'
+const user = {
+  username: 'Oleg',
 }
+const createdAt = Date().toLocaleString()
+const imageUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'
+
 function fetchUser() {
   return {
     username: 'Bill'
   }
 }
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <AppWrapper func ={fetchUser()}/>
-        <ArticleOverviewComponentFunc data={ data }/>
-        <ArticleOverviewComponentClass data={ data }/>
+        <AppWrapperFunc func={fetchUser}/>
+        <AppWrapperClass func={fetchUser}/>
+        <ArticleOverviewComponentFunc title={title} content={content} user={user} createdAt={createdAt} imageUrl={imageUrl}/>
+        <ArticleOverviewComponentClass title={title} content={content} user={user} createdAt={createdAt} imageUrl={imageUrl}/>
       </header>
     </div>
   );
