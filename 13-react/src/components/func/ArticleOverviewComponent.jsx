@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes, { string } from 'prop-types'
 
 function ArticleOverviewComponent({title, content, user, createdAt, imageUrl}) {
   return (
@@ -13,13 +13,13 @@ function ArticleOverviewComponent({title, content, user, createdAt, imageUrl}) {
 }
 
 ArticleOverviewComponent.propTypes = {
-  data: PropTypes.shape({
     title: PropTypes.string,
     content: PropTypes.string,
-    user: PropTypes.object,
+    user: PropTypes.shape({
+      username: string
+    }),
     createdAt: PropTypes.string,
     imageUrl: PropTypes.string,
-  })
 }
 
 export default ArticleOverviewComponent;
