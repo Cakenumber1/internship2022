@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types'
 import { Component } from 'react';
+import types from '../types';
 
 class ArticleOverviewComponent extends Component {
   render() {
@@ -22,14 +22,6 @@ class ArticleOverviewComponent extends Component {
   }
 }
 
-ArticleOverviewComponent.propTypes = {
-  title: PropTypes.string,
-  content: PropTypes.string,
-  user: PropTypes.shape({
-    username: PropTypes.string
-  }),
-  createdAt: PropTypes.string,
-  imageUrl: PropTypes.string,
-}
+ArticleOverviewComponent.propTypes = types
 
 export default ArticleOverviewComponent;
