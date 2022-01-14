@@ -22,10 +22,22 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <AppWrapperFunc func={fetchUser}/>
-        <AppWrapperClass func={fetchUser}/>
-        <ArticleOverviewComponentFunc title={title} content={content} user={user} createdAt={createdAt} imageUrl={imageUrl}/>
-        <ArticleOverviewComponentClass title={title} content={content} user={user} createdAt={createdAt} imageUrl={imageUrl}/>
+        <AppWrapperFunc fetchUser={fetchUser}/>
+        <AppWrapperClass fetchUser={fetchUser}/>
+        <ArticleOverviewComponentFunc
+          title={title}
+          content={content}
+          user={user}
+          createdAt={createdAt}
+          imageUrl={imageUrl}
+        />
+        <ArticleOverviewComponentClass
+          title={title}
+          content={content}
+          user={user}
+          createdAt={createdAt}
+          imageUrl={imageUrl}
+        />
       </header>
     </div>
   );
