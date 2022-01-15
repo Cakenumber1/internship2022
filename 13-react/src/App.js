@@ -1,8 +1,7 @@
 import './App.css';
-import ArticleOverviewComponentFunc from './components/func/ArticleOverviewComponent';
-import ArticleOverviewComponentClass from './components/class/ArticleOverviewComponent';
-import AppWrapperFunc from './components/func/App';
-import AppWrapperClass from './components/class/App';
+import { AppFunc } from './components/App/App';
+import { ArticleOverviewComponentFunc } from './components/ArticleOverviewComponent/ArticleOverviewComponent';
+
 
 const title = 'title123'
 const content = 'contentText123'
@@ -19,28 +18,16 @@ function fetchUser() {
 }
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <AppWrapperFunc fetchUser={fetchUser}/>
-        <AppWrapperClass fetchUser={fetchUser}/>
-        <ArticleOverviewComponentFunc
-          title={title}
-          content={content}
-          user={user}
-          createdAt={createdAt}
-          imageUrl={imageUrl}
-        />
-        <ArticleOverviewComponentClass
-          title={title}
-          content={content}
-          user={user}
-          createdAt={createdAt}
-          imageUrl={imageUrl}
-        />
-      </header>
-    </div>
-  );
+  return (<div className="App">
+    <AppFunc fetchUser={fetchUser}/>
+    <ArticleOverviewComponentFunc
+      title={title}
+      content={content}
+      user={user}
+      createdAt={createdAt}
+      imageUrl={imageUrl}
+    />
+  </div>);
 }
 
 export default App;
