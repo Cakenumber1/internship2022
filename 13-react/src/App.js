@@ -1,7 +1,7 @@
 import './App.css';
 import { AppFunc } from './components/App/App';
+import Counter from './components/Counter/Counter';
 import { ArticleOverviewComponentFunc } from './components/ArticleOverviewComponent/ArticleOverviewComponent';
-
 
 const title = 'title123'
 const content = 'contentText123'
@@ -27,6 +27,7 @@ function App() {
       createdAt={createdAt}
       imageUrl={imageUrl}
     />
+    <Counter/>
   </div>);
 }
 
