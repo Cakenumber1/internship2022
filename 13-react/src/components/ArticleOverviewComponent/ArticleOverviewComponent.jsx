@@ -36,4 +36,3 @@ export function ArticleOverviewComponentFunc({title, content, user, createdAt, i
 
 ArticleOverviewComponentClass.propTypes = types
 ArticleOverviewComponentFunc.propTypes = types
-
