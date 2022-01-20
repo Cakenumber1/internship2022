@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import css from '../LoginComponent/LoginComponent.module.css'
+import css from '../LoginComponent/LoginComponent.module.scss'
 
 function LoginComponent({login}) {
 
