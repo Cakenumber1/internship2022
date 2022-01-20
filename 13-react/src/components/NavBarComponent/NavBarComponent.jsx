@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -14,23 +14,25 @@ const pages = ['Smth', 'Smth2'];
 const settings = ['Profile', 'Logout'];
 
 function NavBarComponent({user}) {
+
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget);
-  };
+  const handleOpenNavMenu = useCallback((event) => {
+    setAnchorElNav(event.currentTarget)
+  }, [])
 
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
+  const handleOpenUserMenu = useCallback((event) => {
+    setAnchorElUser(event.currentTarget)
+  }, [])
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+  const handleCloseNavMenu = useCallback(() => {
+    setAnchorElNav(null)
+  }, [])
+
+  const handleCloseUserMenu = useCallback(() => {
+    setAnchorElUser(null)
+  }, [])
 
   return (
     <AppBar position="static">

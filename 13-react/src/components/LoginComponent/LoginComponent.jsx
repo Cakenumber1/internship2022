@@ -2,12 +2,14 @@ import { useState } from 'react';
 import css from '../LoginComponent/LoginComponent.module.css'
 
 function LoginComponent({login}) {
+
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+
   const handleSubmit = (e) => {
     e.preventDefault()
     login(username, password)
   }
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
 
   return (
     <form className={css.LoginComponent}>
