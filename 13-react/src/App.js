@@ -1,8 +1,10 @@
 import './App.css';
 import { AppFunc } from './components/App/App';
-import Counter from './components/Counter/Counter';
 import { ArticleOverviewComponentFunc } from './components/ArticleOverviewComponent/ArticleOverviewComponent';
-import LoginComponent from './components/LoginComponent/LoginComponent';
+import data_articles from './articles.json'
+import data_notifications from './notifications.json'
+import FeedContainer from './containers/FeedContainer/FeedContainer';
+import NotificationContainer2 from './containers/NotificationContainer/NotificationContainer2';
 
 const title = 'title123'
 const content = 'contentText123'
@@ -18,22 +20,31 @@ function fetchUser() {
   }
 }
 
+//height for test
 function App() {
-  return (<div className="App">
-    <AppFunc fetchUser={fetchUser}/>
-    <ArticleOverviewComponentFunc
-      title={title}
-      content={content}
-      user={user}
-      createdAt={createdAt}
-      imageUrl={imageUrl}
-    />
-    <Counter/>
-    <LoginComponent login={(username, password) => {
-      if(username && password)
-      console.log('Form parameters: ', username, password)
-    }}/>
-  </div>);
+  return (
+    <div className="App" style={{height: '2000px'}}>
+      <AppFunc fetchUser={fetchUser}/>
+      <ArticleOverviewComponentFunc
+        title={title}
+        content={content}
+        user={user}
+        createdAt={createdAt}
+        imageUrl={imageUrl}
+      />
+      <FeedContainer fetchArticles={() => {
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            resolve(data_articles);
+          }, 1000)
+        })
+      }}/>
+      <NotificationContainer2 fetchNotifications={() => {
+        return new Promise((resolve) => {
+          resolve(data_notifications)
+        })
+      }}/>
+    </div>);
 }
 
 export default App;
