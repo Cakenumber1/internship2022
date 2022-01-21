@@ -10,7 +10,7 @@ function NotificationComponent({notifications}) {
 
   const handleClick = useCallback((event) => {
     setAnchorEl(anchorEl ? null : event.currentTarget)
-  }, [])
+  }, [anchorEl])
 
 
   const open = Boolean(anchorEl);
