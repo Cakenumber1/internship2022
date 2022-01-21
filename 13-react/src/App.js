@@ -13,6 +13,7 @@ import RegisterComponent from './components/RegisterComponent/RegisterComponent'
 import CommonLayoutComponent from './components/CommonLayoutComponent/CommonLayoutComponent';
 import { isAuthenticated } from './authentication';
 import NotFoundPageComponent from './components/NotFoundPageComponent/NotFoundPageComponent';
+import Redirect from 'react-router-dom/es/Redirect';
 
 const title = 'title123'
 const content = 'contentText123'
@@ -34,6 +35,14 @@ function App() {
       <Router>
         {(isAuthenticated() ? <AppFunc fetchUser={fetchUser}/> : null)}
         <Switch>
+          <Route exact path="/" render={() => {
+            return (
+              (isAuthenticated()
+                  ? <Redirect to="/feed"/>
+                  : <Redirect to="/login"/>
+              ))
+          }}
+          />
           <AuthLayoutComponent exact path={routes.LOGIN} component={LoginComponent}
                                isAuthenticated={isAuthenticated()}/>
           <AuthLayoutComponent exact path={routes.REGISTER} component={RegisterComponent}
