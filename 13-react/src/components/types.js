@@ -4,10 +4,10 @@ const types = {
   title: PropTypes.string,
   content: PropTypes.string,
   user: PropTypes.shape({
-    username: PropTypes.string
+    username: PropTypes.string,
   }),
   createdAt: PropTypes.string,
   imageUrl: PropTypes.string,
-}
+};
 
-export default types
+export default types;

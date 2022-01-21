@@ -1,16 +1,15 @@
-import { useState } from 'react';
-import { TextField } from '@mui/material';
-import { Link } from 'react-router-dom';
+import {TextField} from '@mui/material';
+import {useState} from 'react';
+import {Link} from 'react-router-dom';
 
 function LoginComponent({login}) {
-
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    login(username, password)
-  }
+    e.preventDefault();
+    login(username, password);
+  };
 
   return (
     <form style={{
@@ -22,9 +21,9 @@ function LoginComponent({login}) {
     }}
     >
       <TextField sx={{marginBottom: '10px'}} label="Login*" type="text"
-                 onChange={event => setUsername(event.target.value)}/>
+        onChange={(event) => setUsername(event.target.value)}/>
       <TextField sx={{marginBottom: '10px'}} label="Password*" type="password"
-                 onChange={event => setPassword(event.target.value)}/>
+        onChange={(event) => setPassword(event.target.value)}/>
       <button onClick={handleSubmit}>Submit</button>
       <Link to="/register">Register</Link>
     </form>

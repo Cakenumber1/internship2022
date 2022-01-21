@@ -4,4 +4,4 @@ function NotFoundPageComponent() {
   );
 }
 
-export default NotFoundPageComponent
+export default NotFoundPageComponent;

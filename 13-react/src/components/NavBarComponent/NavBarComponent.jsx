@@ -1,40 +1,39 @@
-import { useCallback, useState } from 'react'
+import MenuIcon from '@mui/icons-material/Menu';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
-import MenuItem from '@mui/material/MenuItem';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
-import { useHistory } from 'react-router-dom';
+import {useCallback, useState} from 'react';
+import {useHistory} from 'react-router-dom';
 
 function NavBarComponent(props) {
-
-  let history = useHistory()
-  const [anchorElNav, setAnchorElNav] = useState(null)
-  const [anchorElUser, setAnchorElUser] = useState(null)
+  const history = useHistory();
+  const [anchorElNav, setAnchorElNav] = useState(null);
+  const [anchorElUser, setAnchorElUser] = useState(null);
 
   const handleOpenNavMenu = useCallback((event) => {
-    setAnchorElNav(event.currentTarget)
-  }, [])
+    setAnchorElNav(event.currentTarget);
+  }, []);
 
   const handleOpenUserMenu = useCallback((event) => {
-    setAnchorElUser(event.currentTarget)
-  }, [])
+    setAnchorElUser(event.currentTarget);
+  }, []);
 
   const handleCloseNavMenu = useCallback((event) => {
-    setAnchorElNav(null)
-    history.push(`/${event.currentTarget.textContent}`)
-  }, [history])
+    setAnchorElNav(null);
+    history.push(`/${event.currentTarget.textContent}`);
+  }, [history]);
 
   const handleCloseUserMenu = useCallback(() => {
-    setAnchorElUser(null)
-  }, [])
+    setAnchorElUser(null);
+  }, []);
 
-  const pages = ['feed', 'article']
+  const pages = ['feed', 'article'];
 
   return (
     <AppBar position="static">
@@ -64,12 +63,12 @@ function NavBarComponent(props) {
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: 'bottom',
-                horizontal: 'left'
+                horizontal: 'left',
               }}
               keepMounted
               transformOrigin={{
                 vertical: 'top',
-                horizontal: 'left'
+                horizontal: 'left',
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
@@ -79,7 +78,11 @@ function NavBarComponent(props) {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" sx={{color: 'red', width: '100px', m: 0}}>{page}</Typography>
+                  <Typography textAlign="center"
+                    sx={{color: 'red', width: '100px', m: 0}}
+                  >
+                    {page}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -116,12 +119,12 @@ function NavBarComponent(props) {
               anchorEl={anchorElUser}
               anchorOrigin={{
                 vertical: 'top',
-                horizontal: 'right'
+                horizontal: 'right',
               }}
               keepMounted
               transformOrigin={{
                 vertical: 'top',
-                horizontal: 'right'
+                horizontal: 'right',
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
@@ -135,7 +138,7 @@ function NavBarComponent(props) {
         </Toolbar>
       </Container>
     </AppBar>
-  )
+  );
 }
 
 export default NavBarComponent;
