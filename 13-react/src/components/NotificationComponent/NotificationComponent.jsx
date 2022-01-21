@@ -1,61 +1,54 @@
 import Badge from '@mui/material/Badge';
 import MailIcon from '@mui/icons-material/Mail';
 import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import { useState } from 'react';
+import Box from '@mui/material/Box';
+import Popper from '@mui/material/Popper';
+import { useCallback, useState } from 'react';
 
 function NotificationComponent({notifications}) {
   const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleClick = useCallback((event) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget)
+  }, [])
+
+
   const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
+  const id = open ? 'simple-popper' : undefined;
+
   if (notifications) {
     return (
-      <div style={{position: 'fixed', right: '10px', bottom: '10px'}}>
+      <div style={{position: 'fixed', right: '20px', bottom: '10px'}}>
         <Button
-          id="demo-positioned-button"
-          aria-controls={open ? 'demo-positioned-menu' : undefined}
-          aria-haspopup="true"
-          aria-expanded={open ? 'true' : undefined}
+          id={id}
           onClick={handleClick}
+          sx={{p: '12px 0', borderRadius: 35}}
         >
           <Badge badgeContent={notifications.length} color="primary">
             <MailIcon color="action"/>
           </Badge>
         </Button>
-        <Menu
-          MenuListProps={{
-            disablePadding: true
-          }}
-          sx={{borderRadius: 5}}
-          id="demo-positioned-menu"
-          aria-labelledby="demo-positioned-button"
-          anchorEl={anchorEl}
+        <Popper
+          sx={{borderRadius: 5, marginRight: '10px'}}
+          id={id}
           open={open}
-          onClose={handleClose}
-          anchorOrigin={{
-            vertical: 'top',
-            horizontal: 'left',
-          }}
-          transformOrigin={{
-            vertical: 'bottom',
-            horizontal: 'left',
-          }}
+          anchorEl={anchorEl}
+          placement="top-end"
         >
           {notifications.map(n => (
-            <MenuItem
+            <Box
               key={n.uuid}
               sx={{
                 display: 'flex',
                 width: '200px',
                 bgcolor: 'gray',
                 p: 'none',
-                overflow: 'hidden'
+                overflow: 'hidden',
+                '&:hover': {
+                  backgroundColor: 'antiquewhite',
+                  opacity: [0.9, 0.8, 0.7],
+                  cursor: 'pointer'
+                },
               }}
             >
               <div style={{
@@ -79,16 +72,14 @@ function NotificationComponent({notifications}) {
               >
                 {n.inner}
               </div>
-            </MenuItem>
+            </Box>
           ))}
-        </Menu>
+        </Popper>
       </div>
     );
   } else {
     return null
   }
-
 }
 
 export default NotificationComponent;
-
