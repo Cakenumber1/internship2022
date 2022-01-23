@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import css from '../LoginComponent/LoginComponent.module.scss'
 
-function LoginComponent({login}) {
+function LoginComponent({handleLogin}) {
 
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    login(username, password)
+    handleLogin(username, password)
   }
 
   return (

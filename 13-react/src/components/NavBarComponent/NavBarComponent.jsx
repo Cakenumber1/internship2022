@@ -13,6 +13,18 @@ import { Modal } from '@mui/material';
 import LoginComponent from '../LoginComponent/LoginComponent';
 
 const pages = ['Smth', 'Smth2'];
+const styleBL = {
+  vertical: 'bottom',
+  horizontal: 'left'
+}
+const styleTL = {
+  vertical: 'top',
+  horizontal: 'left'
+}
+const styleTR = {
+  vertical: 'top',
+  horizontal: 'right'
+}
 
 function NavBarComponent() {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -37,20 +49,20 @@ function NavBarComponent() {
     setAnchorElUser(null)
   }, [])
 
-  const handleLogin = (username) => {
+  const handleLogin = useCallback((username) => {
     setUser(username)
     setLoggedIn(true)
-  }
-  const handleLogout = () => {
+  }, [])
+  const handleLogout = useCallback(() => {
     setLoggedIn(false)
     setOpenModal(false)
-  }
-  const handleOpenModal = () => {
+  }, [])
+  const handleOpenModal = useCallback(() => {
     setOpenModal(true)
-  }
-  const handleCloseModal = () => {
+  }, [])
+  const handleCloseModal = useCallback(() => {
     setOpenModal(false)
-  }
+  }, [])
 
   if (loggedIn) {
     return (
@@ -79,15 +91,9 @@ function NavBarComponent() {
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorElNav}
-                anchorOrigin={{
-                  vertical: 'bottom',
-                  horizontal: 'left'
-                }}
+                anchorOrigin={styleBL}
                 keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'left'
-                }}
+                transformOrigin={styleTL}
                 open={Boolean(anchorElNav)}
                 onClose={handleCloseNavMenu}
                 sx={{
@@ -131,15 +137,9 @@ function NavBarComponent() {
                 sx={{mt: '45px'}}
                 id="menu-appbar"
                 anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right'
-                }}
+                anchorOrigin={styleTR}
                 keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right'
-                }}
+                transformOrigin={styleTR}
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
               >
@@ -165,7 +165,7 @@ function NavBarComponent() {
               variant="h6"
               noWrap
               component="div"
-              sx={{mr: 2, display: {xs: 'none', md: 'flex'}}}
+              sx={{mr: 2, display: 'flex'}}
             >
               Blog App
             </Typography>
