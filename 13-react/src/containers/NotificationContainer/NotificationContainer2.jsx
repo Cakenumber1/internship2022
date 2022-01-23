@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import NotificationComponent from '../../components/NotificationComponent/NotificationComponent';
+import data_notifications from '../../notifications.json'
 
 function NotificationContainer({fetchNotifications}) {
 
@@ -8,7 +9,7 @@ function NotificationContainer({fetchNotifications}) {
 
   useEffect(() => {
     setLoading(true)
-    fetchNotifications().then(e => {
+    fetchNotifications(data_notifications).then(e => {
       setNotifications(e.messages)
       setLoading(false)
     })

@@ -1,8 +1,6 @@
 import './App.css';
 import { AppFunc } from './components/App/App';
 import { ArticleOverviewComponentFunc } from './components/ArticleOverviewComponent/ArticleOverviewComponent';
-import data_articles from './articles.json'
-import data_notifications from './notifications.json'
 import FeedContainer from './containers/FeedContainer/FeedContainer';
 import NotificationContainer2 from './containers/NotificationContainer/NotificationContainer2';
 import { fetchData, fetchDataWithDelay } from './fetch/fetchFunctions';
@@ -33,8 +31,8 @@ function App() {
         createdAt={createdAt}
         imageUrl={imageUrl}
       />
-      <FeedContainer fetchArticles={fetchDataWithDelay(data_articles)}/>
-      <NotificationContainer2 fetchNotifications={fetchData(data_notifications)}/>
+      <FeedContainer fetchArticles={fetchDataWithDelay}/>
+      <NotificationContainer2 fetchNotifications={fetchData}/>
     </div>);
 }
 
