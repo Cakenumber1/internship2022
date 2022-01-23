@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
+import dataArticles from '../../articles.json';
 import FeedComponent from '../../components/FeedComponent/FeedComponent';
 
 
@@ -9,7 +10,7 @@ function FeedContainer({fetchArticles}) {
 
   useEffect(() => {
     setLoading(true);
-    fetchArticles().then((e) => {
+    fetchArticles(dataArticles).then((e) => {
       setArticles(e.results);
       setLoading(false);
     });

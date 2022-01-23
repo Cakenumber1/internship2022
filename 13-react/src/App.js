@@ -4,8 +4,8 @@ import {BrowserRouter as Router, Redirect, Route, Switch}
   from 'react-router-dom';
 
 import {isAuthenticated} from './authentication';
-import {AppFunc} from './components/App/App';
-import {ArticleOverviewComponentFunc}
+import {AppFunc as AppWrapper} from './components/App/App';
+import {ArticleOverviewComponentFunc as ArticleOverviewComponent}
   from './components/ArticleOverviewComponent/ArticleOverviewComponent';
 import AuthLayoutComponent from
   './components/AuthLayoutComponent/AuthLayoutComponent';
@@ -40,7 +40,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        {(isAuthenticated() ? <AppFunc fetchUser={fetchUser}/> : null)}
+        {(isAuthenticated() ? <AppWrapper fetchUser={fetchUser}/> : null)}
         <Switch>
           <Route exact path="/" render={() => {
             return (
@@ -64,7 +64,7 @@ function App() {
             fetchArticles={fetchDataWithDelay}
           />
           <CommonLayoutComponent
-            exact path={routes.ARTICLE} component={ArticleOverviewComponentFunc}
+            exact path={routes.ARTICLE} component={ArticleOverviewComponent}
             isAuthenticated={isAuthenticated()}
             title={title}
             content={content}

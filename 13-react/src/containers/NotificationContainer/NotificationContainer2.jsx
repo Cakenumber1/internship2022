@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 
 import NotificationComponent
   from '../../components/NotificationComponent/NotificationComponent';
-import data_notifications from '../../notifications.json'
+import dataNotifications from '../../notifications.json';
 
 function NotificationContainer({fetchNotifications}) {
   const [notifications, setNotifications] = useState(null);
@@ -10,7 +10,7 @@ function NotificationContainer({fetchNotifications}) {
 
   useEffect(() => {
     setLoading(true);
-    fetchNotifications(data_notifications).then((e) => {
+    fetchNotifications(dataNotifications).then((e) => {
       setNotifications(e.messages);
       setLoading(false);
     });
