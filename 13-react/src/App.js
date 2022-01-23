@@ -1,10 +1,10 @@
 import './App.css';
 
+import {useState} from 'react';
 import {BrowserRouter as Router, Redirect, Route, Switch}
   from 'react-router-dom';
 
-import {isAuthenticated} from './authentication';
-import {AppFunc as AppWrapper} from './components/App/App';
+import {AuthenticationContext} from './authenticationContext';
 import {ArticleOverviewComponentFunc as ArticleOverviewComponent}
   from './components/ArticleOverviewComponent/ArticleOverviewComponent';
 import AuthLayoutComponent from
@@ -12,6 +12,7 @@ import AuthLayoutComponent from
 import CommonLayoutComponent from
   './components/CommonLayoutComponent/CommonLayoutComponent';
 import LoginComponent from './components/LoginComponent/LoginComponent';
+import NavBarComponent from './components/NavBarComponent/NavBarComponent';
 import NotFoundPageComponent from
   './components/NotFoundPageComponent/NotFoundPageComponent';
 import RegisterComponent from
@@ -21,7 +22,6 @@ import FeedContainer from './containers/FeedContainer/FeedContainer';
 import NotificationContainer2
   from './containers/NotificationContainer/NotificationContainer2';
 import {fetchData, fetchDataWithDelay} from './fetch/fetchFunctions';
-
 const title = 'title123';
 const content = 'contentText123';
 const author = {
@@ -30,21 +30,16 @@ const author = {
 const createdAt = Date().toLocaleString();
 const imageUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png';
 
-function fetchUser() {
-  return {
-    username: 'Bill',
-  };
-}
-
 function App() {
+  const [user, setUser] = useState('Oleg');
   return (
-    <div className="App">
+    <AuthenticationContext.Provider value={[user, setUser]} className="App">
       <Router>
-        {(isAuthenticated() ? <AppWrapper fetchUser={fetchUser}/> : null)}
+        {user ? <NavBarComponent/> : null}
         <Switch>
           <Route exact path="/" render={() => {
             return (
-              (isAuthenticated() ?
+              (user ?
                   <Redirect to="/feed"/> :
                   <Redirect to="/login"/>
               ));
@@ -52,20 +47,16 @@ function App() {
           />
           <AuthLayoutComponent
             exact path={routes.LOGIN} component={LoginComponent}
-            isAuthenticated={isAuthenticated()}
           />
           <AuthLayoutComponent
             exact path={routes.REGISTER} component={RegisterComponent}
-            isAuthenticated={isAuthenticated()}
           />
           <CommonLayoutComponent
             exact path={routes.FEED} component={FeedContainer}
-            isAuthenticated={isAuthenticated()}
             fetchArticles={fetchDataWithDelay}
           />
           <CommonLayoutComponent
             exact path={routes.ARTICLE} component={ArticleOverviewComponent}
-            isAuthenticated={isAuthenticated()}
             title={title}
             content={content}
             user={author}
@@ -75,9 +66,9 @@ function App() {
           <Route component={NotFoundPageComponent}/>
         </Switch>
       </Router>
-      {(isAuthenticated()) ?
+      {user ?
         <NotificationContainer2 fetchNotifications={fetchData}/> : null}
-    </div>);
+    </AuthenticationContext.Provider>);
 }
 
 export default App;

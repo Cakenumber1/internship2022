@@ -8,8 +8,10 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import {useCallback, useState} from 'react';
+import {useCallback, useContext, useState} from 'react';
 import {useHistory} from 'react-router-dom';
+
+import {AuthenticationContext} from '../../authenticationContext';
 
 const pages = ['feed', 'article'];
 const styleBL = {
@@ -25,10 +27,11 @@ const styleTR = {
   horizontal: 'right',
 };
 
-function NavBarComponent(props) {
+function NavBarComponent() {
   const history = useHistory();
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
+  const [user, setUser] = useContext(AuthenticationContext);
 
   const handleOpenNavMenu = useCallback((event) => {
     setAnchorElNav(event.currentTarget);
@@ -46,6 +49,11 @@ function NavBarComponent(props) {
   const handleCloseUserMenu = useCallback(() => {
     setAnchorElUser(null);
   }, []);
+
+  const handleLogout = useCallback(() => {
+    setUser(null);
+    history.push('/');
+  }, [history]);
 
   return (
     <AppBar position="static">
@@ -117,7 +125,7 @@ function NavBarComponent(props) {
               onClick={handleOpenUserMenu}
               sx={{my: 2, color: 'white', display: 'block', m: 0}}
             >
-              {props.user.username}
+              {user}
             </Button>
             <Menu
               sx={{mt: '45px'}}
@@ -130,8 +138,9 @@ function NavBarComponent(props) {
               onClose={handleCloseUserMenu}
             >
               <MenuItem>
-                <Typography
-                  textAlign="center">Logout</Typography>
+                <Button textalign="center" onClick={handleLogout}>
+                  Logout
+                </Button>
               </MenuItem>
             </Menu>
           </Box>

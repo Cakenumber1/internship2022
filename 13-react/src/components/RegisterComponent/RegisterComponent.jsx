@@ -1,8 +1,12 @@
 import {TextField} from '@mui/material';
-import {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {useContext, useState} from 'react';
+import {Link, useHistory} from 'react-router-dom';
 
-function RegisterComponent({login}) {
+import {AuthenticationContext} from '../../authenticationContext';
+
+function RegisterComponent() {
+  const history = useHistory();
+  const setUser = useContext(AuthenticationContext)[1];
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [password2, setPassword2] = useState('');
@@ -11,7 +15,9 @@ function RegisterComponent({login}) {
     e.preventDefault();
     if (username && password && password2) {
       if (password === password2) {
-        login(username, password);
+        console.log(username, password);
+        setUser(username);
+        history.push('/');
       }
     }
   };

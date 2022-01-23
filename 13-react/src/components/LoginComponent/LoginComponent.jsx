@@ -1,14 +1,20 @@
 import {TextField} from '@mui/material';
-import {useState} from 'react';
-import {Link} from 'react-router-dom';
+import {useContext, useState} from 'react';
+import {Link, useHistory} from 'react-router-dom';
 
-function LoginComponent({handleLogin}) {
+import {AuthenticationContext} from '../../authenticationContext';
+
+function LoginComponent() {
+  const history = useHistory();
+  const setUser = useContext(AuthenticationContext)[1];
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    handleLogin(username, password);
+    console.log(username, password);
+    setUser(username);
+    history.push('/');
   };
 
   return (
