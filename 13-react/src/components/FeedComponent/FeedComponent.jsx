@@ -4,7 +4,7 @@ function FeedComponent({articles}) {
   if (articles) {
     return (
       <div>
-        {articles.map(card => (
+        {articles.map((card) => (
           <CardComponent key={card.name} data={card.name}/>
         ))}
       </div>
@@ -12,7 +12,7 @@ function FeedComponent({articles}) {
   } else {
     return (
       <div>No articles</div>
-    )
+    );
   }
 }
 

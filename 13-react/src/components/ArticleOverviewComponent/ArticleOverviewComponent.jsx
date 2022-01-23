@@ -1,4 +1,5 @@
-import { Component } from 'react';
+import {Component} from 'react';
+
 import types from '../types';
 
 export class ArticleOverviewComponentClass extends Component {
@@ -9,7 +10,7 @@ export class ArticleOverviewComponentClass extends Component {
       user,
       createdAt,
       imageUrl,
-    } = this.props
+    } = this.props;
     return (
       <div className="ArticleOverviewComponent">
         <h1>{title}</h1>
@@ -22,7 +23,8 @@ export class ArticleOverviewComponentClass extends Component {
   }
 }
 
-export function ArticleOverviewComponentFunc({title, content, user, createdAt, imageUrl}) {
+export function ArticleOverviewComponentFunc(
+    {title, content, user, createdAt, imageUrl}) {
   return (
     <div className="ArticleOverviewComponent">
       <h1>{title}</h1>
@@ -34,5 +36,5 @@ export function ArticleOverviewComponentFunc({title, content, user, createdAt, i
   );
 }
 
-ArticleOverviewComponentClass.propTypes = types
-ArticleOverviewComponentFunc.propTypes = types
+ArticleOverviewComponentClass.propTypes = types;
+ArticleOverviewComponentFunc.propTypes = types;

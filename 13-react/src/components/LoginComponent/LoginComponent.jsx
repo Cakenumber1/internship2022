@@ -1,31 +1,32 @@
-import { useState } from 'react';
-import css from '../LoginComponent/LoginComponent.module.scss'
+import {TextField} from '@mui/material';
+import {useState} from 'react';
+import {Link} from 'react-router-dom';
 
 function LoginComponent({handleLogin}) {
 
-  const [username, setUsername] = useState('')
-  const [password, setPassword] = useState('')
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    handleLogin(username, password)
-  }
+    e.preventDefault();
+    handleLogin(username, password);
+  };
 
   return (
-    <form className={css.LoginComponent}>
-      <table>
-        <tbody>
-        <tr>
-          <td className={css.login}>login</td>
-          <td><input name="login" type="text" onChange={event => setUsername(event.target.value)}/></td>
-        </tr>
-        <tr>
-          <td className={css.password}>password</td>
-          <td><input name="password" type="password" onChange={event => setPassword(event.target.value)}/></td>
-        </tr>
-        </tbody>
-      </table>
-      <button className={css.button} onClick={handleSubmit}>Submit</button>
+    <form style={{
+      margin: '20px',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}
+    >
+      <TextField sx={{marginBottom: '10px'}} label="Login*" type="text"
+        onChange={(event) => setUsername(event.target.value)}/>
+      <TextField sx={{marginBottom: '10px'}} label="Password*" type="password"
+        onChange={(event) => setPassword(event.target.value)}/>
+      <button onClick={handleSubmit}>Submit</button>
+      <Link to="/register">Register</Link>
     </form>
   );
 }
