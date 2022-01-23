@@ -5,6 +5,7 @@ import data_articles from './articles.json'
 import data_notifications from './notifications.json'
 import FeedContainer from './containers/FeedContainer/FeedContainer';
 import NotificationContainer2 from './containers/NotificationContainer/NotificationContainer2';
+import { fetchData, fetchDataWithDelay } from './fetch/fetchFunctions';
 
 const title = 'title123'
 const content = 'contentText123'
@@ -32,18 +33,8 @@ function App() {
         createdAt={createdAt}
         imageUrl={imageUrl}
       />
-      <FeedContainer fetchArticles={() => {
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            resolve(data_articles);
-          }, 1000)
-        })
-      }}/>
-      <NotificationContainer2 fetchNotifications={() => {
-        return new Promise((resolve) => {
-          resolve(data_notifications)
-        })
-      }}/>
+      <FeedContainer fetchArticles={fetchDataWithDelay(data_articles)}/>
+      <NotificationContainer2 fetchNotifications={fetchData(data_notifications)}/>
     </div>);
 }
 
