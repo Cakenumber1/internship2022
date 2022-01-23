@@ -11,9 +11,9 @@ import Typography from '@mui/material/Typography';
 import {useCallback, useContext, useState} from 'react';
 import {useHistory} from 'react-router-dom';
 
-import {AuthenticationContext} from '../../authenticationContext';
+import {AuthenticationContext} from '../../context/authenticationContext';
 
-const pages = ['feed', 'article'];
+const pages = ['feed'];
 const styleBL = {
   vertical: 'bottom',
   horizontal: 'left',

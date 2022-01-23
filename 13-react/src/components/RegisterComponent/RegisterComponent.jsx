@@ -2,7 +2,7 @@ import {TextField} from '@mui/material';
 import {useContext, useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 
-import {AuthenticationContext} from '../../authenticationContext';
+import {AuthenticationContext} from '../../context/authenticationContext';
 
 function RegisterComponent() {
   const history = useHistory();

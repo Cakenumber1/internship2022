@@ -11,4 +11,3 @@ export function fetchDataWithDelay(data) {
     }, 1000);
   });
 }
-

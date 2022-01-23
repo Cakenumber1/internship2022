@@ -1,8 +1,8 @@
-import React, {useContext} from 'react';
+import {useContext} from 'react';
 import {Redirect, Route} from 'react-router-dom';
 
-import {AuthenticationContext} from '../../authenticationContext';
 import {routes} from '../../constants';
+import {AuthenticationContext} from '../../context/authenticationContext';
 
 const AuthLayoutComponent = ({
   component: Component,

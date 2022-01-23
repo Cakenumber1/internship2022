@@ -3,7 +3,12 @@ import CardComponent from '../CardComponent/CardComponent';
 function FeedComponent({articles}) {
   if (articles) {
     return (
-      <div>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+      >
         {articles.map((card) => (
           <CardComponent key={card.name} data={card.name}/>
         ))}

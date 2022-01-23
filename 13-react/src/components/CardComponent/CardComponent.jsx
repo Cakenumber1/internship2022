@@ -1,6 +1,8 @@
+import {Link} from 'react-router-dom';
+
 function CardComponent({data}) {
   return (
-    <div className="CardComponent">{data}</div>
+    <Link to={`/article/${data}`} style={{padding: '12px'}}>{data}</Link>
   );
 }
 

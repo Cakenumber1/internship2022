@@ -1,7 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import {useEffect, useState} from 'react';
 
-import dataArticles from '../../articles.json';
 import FeedComponent from '../../components/FeedComponent/FeedComponent';
+import dataArticles from '../../fakeServer/articles.json';
 
 
 function FeedContainer({fetchArticles}) {
@@ -16,7 +16,6 @@ function FeedContainer({fetchArticles}) {
     });
   }, [fetchArticles]);
   if (!loading) {
-    // <FeedComponent articles={null}/>
     return (
       <FeedComponent articles={articles}/>
     );

@@ -4,8 +4,7 @@ import {useState} from 'react';
 import {BrowserRouter as Router, Redirect, Route, Switch}
   from 'react-router-dom';
 
-import {AuthenticationContext} from './authenticationContext';
-import {ArticleOverviewComponentFunc as ArticleOverviewComponent}
+import ArticleOverviewComponent
   from './components/ArticleOverviewComponent/ArticleOverviewComponent';
 import AuthLayoutComponent from
   './components/AuthLayoutComponent/AuthLayoutComponent';
@@ -21,7 +20,8 @@ import {routes} from './constants';
 import FeedContainer from './containers/FeedContainer/FeedContainer';
 import NotificationContainer2
   from './containers/NotificationContainer/NotificationContainer2';
-import {fetchData, fetchDataWithDelay} from './fetch/fetchFunctions';
+import {AuthenticationContext} from './context/authenticationContext';
+import {fetchData, fetchDataWithDelay} from './fakeServer/fetch/fetchFunctions';
 const title = 'title123';
 const content = 'contentText123';
 const author = {
