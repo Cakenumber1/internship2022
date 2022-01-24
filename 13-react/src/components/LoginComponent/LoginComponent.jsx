@@ -1,19 +1,20 @@
 import {TextField} from '@mui/material';
-import {useContext, useState} from 'react';
+import {useState} from 'react';
+import {useDispatch} from 'react-redux';
 import {Link, useHistory} from 'react-router-dom';
 
-import {AuthenticationContext} from '../../context/authenticationContext';
+import {loginAction} from '../../store/actions';
 
 function LoginComponent() {
   const history = useHistory();
-  const setUser = useContext(AuthenticationContext)[1];
+  const dispatch = useDispatch();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(username, password);
-    setUser(username);
+    dispatch(loginAction(username));
     history.push('/');
   };
 
