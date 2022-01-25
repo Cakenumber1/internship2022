@@ -4,6 +4,16 @@ import {Link, useHistory} from 'react-router-dom';
 
 import {AuthenticationContext} from '../../context/authenticationContext';
 
+const sForm = {
+  margin: '10px',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
+const sxMb10 = {marginBottom: '10px'};
+
+
 function RegisterComponent() {
   const history = useHistory();
   const setUser = useContext(AuthenticationContext)[1];
@@ -23,24 +33,18 @@ function RegisterComponent() {
   };
 
   return (
-    <form style={{
-      margin: '10px',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-    }}
+    <form style={sForm}
     >
       <TextField
-        sx={{marginBottom: '10px'}} label="Login*" type="text"
+        sx={sxMb10} label="Login*" type="text"
         onChange={(event) => setUsername(event.target.value)}
       />
       <TextField
-        sx={{marginBottom: '10px'}} label="Password*" type="password"
+        sx={sxMb10} label="Password*" type="password"
         onChange={(event) => setPassword(event.target.value)}
       />
       <TextField
-        sx={{marginBottom: '10px'}} label="Repeat Password*" type="password"
+        sx={sxMb10} label="Repeat Password*" type="password"
         onChange={(event) => setPassword2(event.target.value)}
       />
       <button onClick={handleSubmit}>Submit</button>
