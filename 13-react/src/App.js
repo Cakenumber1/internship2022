@@ -1,39 +1,42 @@
 import './App.css';
-import { AppFunc } from './components/App/App';
-import Counter from './components/Counter/Counter';
-import { ArticleOverviewComponentFunc } from './components/ArticleOverviewComponent/ArticleOverviewComponent';
-import LoginComponent from './components/LoginComponent/LoginComponent';
 
-const title = 'title123'
-const content = 'contentText123'
+import AppFunc from './components/App';
+import ArticleOverviewComponent from
+  './components/ArticleOverviewComponent';
+import FeedContainer from './containers/FeedContainer';
+import NotificationContainer2 from
+  './containers/NotificationContainer';
+import {fetchData, fetchDataWithDelay} from './fetch/fetchFunctions';
+
+const title = 'title123';
+const content = 'contentText123';
 const user = {
   username: 'Oleg',
-}
-const createdAt = Date().toLocaleString()
-const imageUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png'
+};
+const createdAt = Date().toLocaleString();
+const imageUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png';
 
 function fetchUser() {
   return {
-    username: 'Bill'
-  }
+    username: 'Bill',
+  };
 }
 
+// height for test
 function App() {
-  return (<div className="App">
-    <AppFunc fetchUser={fetchUser}/>
-    <ArticleOverviewComponentFunc
-      title={title}
-      content={content}
-      user={user}
-      createdAt={createdAt}
-      imageUrl={imageUrl}
-    />
-    <Counter/>
-    <LoginComponent login={(username, password) => {
-      if(username && password)
-      console.log('Form parameters: ', username, password)
-    }}/>
-  </div>);
+  return (
+    <div className="App" style={{height: '2000px'}}>
+      <AppFunc fetchUser={fetchUser}/>
+      <ArticleOverviewComponent
+        title={title}
+        content={content}
+        user={user}
+        createdAt={createdAt}
+        imageUrl={imageUrl}
+      />
+      <FeedContainer fetchArticles={fetchDataWithDelay}/>
+      <NotificationContainer2 fetchNotifications={fetchData}/>
+    </div>);
 }
 
 export default App;
