@@ -5,7 +5,49 @@ import Box from '@mui/material/Box';
 import Popper from '@mui/material/Popper';
 import { useCallback, useState } from 'react';
 
-function NotificationComponent({notifications}) {
+const sNotification = {
+  position: 'fixed',
+  right: '20px',
+  bottom: '10px',
+}
+const sxNotificationButton = {
+  p: '12px 0',
+  borderRadius: 35,
+}
+const sxPopper = {
+  borderRadius: 5,
+  marginRight: '10px'
+}
+const sxPopperBox = {
+  display: 'flex',
+  width: '200px',
+  bgcolor: 'gray',
+  p: 'none',
+  overflow: 'hidden',
+  '&:hover': {
+    backgroundColor: 'antiquewhite',
+    opacity: [0.9, 0.8, 0.7],
+    cursor: 'pointer'
+  },
+}
+const sPopperAuthor = {
+  color: 'red',
+  fontSize: '14px',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
+  width: '75px',
+}
+const sPopperText = {
+  paddingLeft: '5px',
+  fontSize: '12px',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
+  width: '120px',
+}
+
+  function NotificationComponent({notifications}) {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const handleClick = useCallback((event) => {
@@ -18,18 +60,18 @@ function NotificationComponent({notifications}) {
 
   if (notifications) {
     return (
-      <div style={{position: 'fixed', right: '20px', bottom: '10px'}}>
+      <div style={sNotification}>
         <Button
           id={id}
           onClick={handleClick}
-          sx={{p: '12px 0', borderRadius: 35}}
+          sx={sxNotificationButton}
         >
           <Badge badgeContent={notifications.length} color="primary">
             <MailIcon color="action"/>
           </Badge>
         </Button>
         <Popper
-          sx={{borderRadius: 5, marginRight: '10px'}}
+          sx={sxPopper}
           id={id}
           open={open}
           anchorEl={anchorEl}
@@ -38,37 +80,12 @@ function NotificationComponent({notifications}) {
           {notifications.map(n => (
             <Box
               key={n.uuid}
-              sx={{
-                display: 'flex',
-                width: '200px',
-                bgcolor: 'gray',
-                p: 'none',
-                overflow: 'hidden',
-                '&:hover': {
-                  backgroundColor: 'antiquewhite',
-                  opacity: [0.9, 0.8, 0.7],
-                  cursor: 'pointer'
-                },
-              }}
+              sx={sxPopperBox}
             >
-              <div style={{
-                color: 'red',
-                fontSize: '14px',
-                overflow: 'hidden',
-                whiteSpace: 'nowrap',
-                textOverflow: 'ellipsis',
-                width: '75px',
-              }}
+              <div style={sPopperAuthor}
               >От: {n.author}
               </div>
-              <div style={{
-                paddingLeft: '5px',
-                fontSize: '12px',
-                overflow: 'hidden',
-                whiteSpace: 'nowrap',
-                textOverflow: 'ellipsis',
-                width: '120px',
-              }}
+              <div style={sPopperText}
               >
                 {n.inner}
               </div>
