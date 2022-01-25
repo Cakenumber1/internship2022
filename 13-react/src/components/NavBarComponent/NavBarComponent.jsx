@@ -26,6 +26,45 @@ const styleTR = {
   vertical: 'top',
   horizontal: 'right',
 };
+const sxBlogApp = {
+  mr: 2,
+  display: {xs: 'none', md: 'flex'}
+};
+const sxBlogAppM = {
+  flexGrow: 1,
+  display: {xs: 'flex', md: 'none'},
+};
+const sxMenuIconM = {
+  flexGrow: 1,
+  display: {xs: 'flex', md: 'none'},
+};
+const sxMenu = {
+  flexGrow: 1,
+  display: {xs: 'block', md: 'none'},
+};
+const sxMenuItemM = {
+  color: 'red',
+  width: '100px',
+  m: 0,
+};
+const sxMenuItem = {
+  flexGrow: 1,
+  display: {xs: 'none', md: 'flex'},
+};
+const sxMenuItemButton = {
+  my: 2,
+  color: 'white',
+  display: 'block',
+  m: 0,
+};
+const sxUserMenu = {
+  my: 2,
+  color: 'white',
+  display: 'block',
+  m: 0,
+};
+const sxUserMenuMargin = {mt: '45px'};
+
 
 function NavBarComponent() {
   const history = useHistory();
@@ -55,6 +94,7 @@ function NavBarComponent() {
     history.push('/');
   }, [history]);
 
+
   return (
     <AppBar position="static">
       <Container maxWidth="xl">
@@ -63,11 +103,11 @@ function NavBarComponent() {
             variant="h6"
             noWrap
             component="div"
-            sx={{mr: 2, display: {xs: 'none', md: 'flex'}}}
+            sx={sxBlogApp}
           >
             Blog App
           </Typography>
-          <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}>
+          <Box sx={sxMenuIconM}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -86,14 +126,12 @@ function NavBarComponent() {
               transformOrigin={styleTL}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{
-                display: {xs: 'block', md: 'none'},
-              }}
+              sx={sxMenu}
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center"
-                    sx={{color: 'red', width: '100px', m: 0}}
+                    sx={sxMenuItemM}
                   >
                     {page}
                   </Typography>
@@ -105,30 +143,30 @@ function NavBarComponent() {
             variant="h6"
             noWrap
             component="div"
-            sx={{flexGrow: 1, display: {xs: 'flex', md: 'none'}}}
+            sx={sxBlogAppM}
           >
             Blog App
           </Typography>
-          <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
+          <Box sx={sxMenuItem}>
             {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{my: 2, color: 'white', display: 'block', m: 0}}
+                sx={sxMenuItemButton}
               >
                 {page}
               </Button>
             ))}
           </Box>
-          <Box sx={{flexGrow: 0}}>
+          <Box>
             <Button
               onClick={handleOpenUserMenu}
-              sx={{my: 2, color: 'white', display: 'block', m: 0}}
+              sx={sxUserMenu}
             >
               {user}
             </Button>
             <Menu
-              sx={{mt: '45px'}}
+              sx={sxUserMenuMargin}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={styleTR}

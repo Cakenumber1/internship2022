@@ -29,7 +29,6 @@ const author = {
 };
 const createdAt = Date().toLocaleString();
 const imageUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png';
-
 function App() {
   const [user, setUser] = useState('Oleg');
   return (

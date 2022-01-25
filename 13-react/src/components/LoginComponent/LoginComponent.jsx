@@ -1,5 +1,5 @@
 import {TextField} from '@mui/material';
-import {useContext, useState} from 'react';
+import {useCallback, useContext, useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 
 import {AuthenticationContext} from '../../context/authenticationContext';
@@ -10,12 +10,12 @@ function LoginComponent() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = useCallback((_event) => {
+    _event.preventDefault();
     console.log(username, password);
     setUser(username);
     history.push('/');
-  };
+  }, [handleSubmit, password, username]);
 
   return (
     <form style={{
