@@ -1,65 +1,66 @@
-import {useCallback, useState} from 'react'
+import MenuIcon from '@mui/icons-material/Menu';
+import {Modal} from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
+import Container from '@mui/material/Container';
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import {Modal} from '@mui/material';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import {useCallback, useState} from 'react';
+
 import LoginComponent from '../LoginComponent/LoginComponent';
 
 const pages = ['Smth', 'Smth2'];
 const styleBL = {
   vertical: 'bottom',
-  horizontal: 'left'
-}
+  horizontal: 'left',
+};
 const styleTL = {
   vertical: 'top',
-  horizontal: 'left'
-}
+  horizontal: 'left',
+};
 const styleTR = {
   vertical: 'top',
-  horizontal: 'right'
-}
+  horizontal: 'right',
+};
 let sxBlogApp;
 const sxBlogAppM = {
   flexGrow: 1,
-  display: {xs: 'flex', md: 'none'}
-}
+  display: {xs: 'flex', md: 'none'},
+};
 const sxMenuIconM = {
   flexGrow: 1,
-  display: {xs: 'flex', md: 'none'}
-}
+  display: {xs: 'flex', md: 'none'},
+};
 const sxMenu = {
   flexGrow: 1,
   display: {xs: 'block', md: 'none'},
-}
+};
 const sxMenuItemM = {
   color: 'red',
   width: '100px',
-  m: 0
-}
+  m: 0,
+};
 const sxMenuItem = {
   flexGrow: 1,
-  display: {xs: 'none', md: 'flex'}
-}
+  display: {xs: 'none', md: 'flex'},
+};
 const sxMenuItemButton = {
   my: 2,
   color: 'white',
   display: 'block',
-  m: 0
-}
+  m: 0,
+};
 const sxUserMenu = {
   my: 2,
   color: 'white',
   display: 'block',
-  m: 0
-}
-const sxUserMenuMargin = {mt: '45px'}
+  m: 0,
+};
+const sxUserMenuMargin = {mt: '45px'};
 const sxModal = {
   position: 'absolute',
   top: '50%',
@@ -68,49 +69,49 @@ const sxModal = {
   width: 400,
   bgcolor: 'background.paper',
   border: '2px solid #000',
-  p: 4
-}
+  p: 4,
+};
 
 
 function NavBarComponent() {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
-  const [loggedIn, setLoggedIn] = useState(false)
+  const [loggedIn, setLoggedIn] = useState(false);
   const [openModal, setOpenModal] = useState(false);
-  const [user, setUser] = useState('')
+  const [user, setUser] = useState('');
 
   const handleOpenNavMenu = useCallback((event) => {
-    setAnchorElNav(event.currentTarget)
-  }, [])
+    setAnchorElNav(event.currentTarget);
+  }, []);
 
   const handleOpenUserMenu = useCallback((event) => {
-    setAnchorElUser(event.currentTarget)
-  }, [])
+    setAnchorElUser(event.currentTarget);
+  }, []);
 
   const handleCloseNavMenu = useCallback(() => {
-    setAnchorElNav(null)
-  }, [])
+    setAnchorElNav(null);
+  }, []);
 
   const handleCloseUserMenu = useCallback(() => {
-    setAnchorElUser(null)
-  }, [])
+    setAnchorElUser(null);
+  }, []);
 
   const handleLogin = useCallback((username) => {
-    setUser(username)
-    setLoggedIn(true)
-  }, [])
+    setUser(username);
+    setLoggedIn(true);
+  }, []);
   const handleLogout = useCallback(() => {
-    setLoggedIn(false)
-    setOpenModal(false)
-  }, [])
+    setLoggedIn(false);
+    setOpenModal(false);
+  }, []);
   const handleOpenModal = useCallback(() => {
-    setOpenModal(true)
-  }, [])
+    setOpenModal(true);
+  }, []);
   const handleCloseModal = useCallback(() => {
-    setOpenModal(false)
-  }, [])
-  loggedIn ? sxBlogApp = {mr: 2, display: {xs: 'none', md: 'flex'}}
-    : sxBlogApp = {flexGrow: 1, mr: 2, display: {xs: 'none', md: 'flex'}}
+    setOpenModal(false);
+  }, []);
+  loggedIn ? sxBlogApp = {mr: 2, display: {xs: 'none', md: 'flex'}} :
+    sxBlogApp = {flexGrow: 1, mr: 2, display: {xs: 'none', md: 'flex'}};
 
   return (
     <AppBar position="static">
@@ -147,7 +148,9 @@ function NavBarComponent() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" sx={sxMenuItemM}>{page}</Typography>
+                  <Typography textAlign="center" sx={sxMenuItemM}>
+                    {page}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>

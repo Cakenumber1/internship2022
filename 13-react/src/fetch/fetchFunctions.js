@@ -1,14 +1,14 @@
 export function fetchData(data) {
   return new Promise((resolve) => {
-    resolve(data)
-  })
+    resolve(data);
+  });
 }
 
 export function fetchDataWithDelay(data) {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(data);
-    }, 1000)
-  })
+    }, 1000);
+  });
 }
 
