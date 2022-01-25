@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useCallback, useState} from 'react';
 import css from '../LoginComponent/LoginComponent.module.scss'
 
 function LoginComponent({handleLogin}) {
@@ -6,10 +6,10 @@ function LoginComponent({handleLogin}) {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  const handleSubmit = useCallback((_event) => {
+    _event.preventDefault()
     handleLogin(username, password)
-  }
+  }, [handleLogin, password, username])
 
   return (
     <form className={css.LoginComponent}>
