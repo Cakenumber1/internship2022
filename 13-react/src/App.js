@@ -4,22 +4,16 @@ import {useSelector} from 'react-redux';
 import {BrowserRouter as Router, Redirect, Route, Switch}
   from 'react-router-dom';
 
-import ArticleOverviewComponent
-  from './components/ArticleOverviewComponent/ArticleOverviewComponent';
-import AuthLayoutComponent from
-  './components/AuthLayoutComponent/AuthLayoutComponent';
-import CommonLayoutComponent from
-  './components/CommonLayoutComponent/CommonLayoutComponent';
-import LoginComponent from './components/LoginComponent/LoginComponent';
-import NavBarComponent from './components/NavBarComponent/NavBarComponent';
-import NotFoundPageComponent from
-  './components/NotFoundPageComponent/NotFoundPageComponent';
-import RegisterComponent from
-  './components/RegisterComponent/RegisterComponent';
+import ArticleOverviewComponent from './components/ArticleOverviewComponent';
+import AuthLayoutComponent from './components/AuthLayoutComponent';
+import CommonLayoutComponent from './components/CommonLayoutComponent';
+import LoginComponent from './components/LoginComponent';
+import NavBarComponent from './components/NavBarComponent';
+import NotFoundPageComponent from './components/NotFoundPageComponent';
+import RegisterComponent from './components/RegisterComponent';
 import {routes} from './constants';
-import FeedContainer from './containers/FeedContainer/FeedContainer';
-import NotificationContainer2
-  from './containers/NotificationContainer/NotificationContainer2';
+import FeedContainer from './containers/FeedContainer';
+import NotificationContainer2 from './containers/NotificationContainer';
 import {fetchData, fetchDataWithDelay} from './fakeServer/fetch/fetchFunctions';
 import {userSelector} from './store/selectors';
 const title = 'title123';

@@ -12,6 +12,12 @@ function findByName(arr, target) {
   }
 }
 
+const sArticleOverviewComponent = {
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+};
+
 export default function ArticleOverviewComponent() {
   const location = useLocation().pathname.split('/').pop();
   const [loading, setLoading] = useState(false);
@@ -25,11 +31,7 @@ export default function ArticleOverviewComponent() {
   }, []);
   if (!loading) {
     return (
-      <div style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-      }}
+      <div style={sArticleOverviewComponent}
       >
         <div>{data.name}</div>
         <div>{data.url}</div>

@@ -1,8 +1,10 @@
 import {Link} from 'react-router-dom';
 
+const sCardComponent = {padding: '12px'};
+
 function CardComponent({data}) {
   return (
-    <Link to={`/article/${data}`} style={{padding: '12px'}}>{data}</Link>
+    <Link to={`/article/${data}`} style={sCardComponent}>{data}</Link>
   );
 }
 
