@@ -31,7 +31,7 @@ const styleTR = {
 };
 const sxBlogApp = {
   mr: 2,
-  display: {xs: 'none', md: 'flex'}
+  display: {xs: 'none', md: 'flex'},
 };
 const sxBlogAppM = {
   flexGrow: 1,
