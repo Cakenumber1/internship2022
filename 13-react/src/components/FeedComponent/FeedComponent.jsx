@@ -12,7 +12,7 @@ function FeedComponent({articles}) {
       <div style={sFeedComponent}
       >
         {articles.map((card) => (
-          <CardComponent key={card.name} data={card.name}/>
+          <CardComponent key={card.toString()} data={card}/>
         ))}
       </div>
     );

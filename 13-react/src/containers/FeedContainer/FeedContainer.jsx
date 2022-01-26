@@ -1,23 +1,27 @@
 import {useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 
 import FeedComponent from '../../components/FeedComponent/FeedComponent';
-import dataArticles from '../../fakeServer/articles.json';
+import {articlesIDsSelector} from '../../store/articles/selectors';
+import {fetchArticlesThunk} from '../../store/articles/thunks';
 
 
-function FeedContainer({fetchArticles}) {
-  const [articles, setArticles] = useState(null);
+function FeedContainer() {
+  const dispatch = useDispatch();
+  const articleIDs = useSelector(articlesIDsSelector);
   const [loading, setLoading] = useState(false);
-
   useEffect(() => {
-    setLoading(true);
-    fetchArticles(dataArticles).then((e) => {
-      setArticles(e.results);
-      setLoading(false);
-    });
-  }, [fetchArticles]);
+    // некрасиво
+    if (!articleIDs.length) {
+      setLoading(true);
+      dispatch(fetchArticlesThunk()).then(() => setLoading(false));
+    }
+  }, [dispatch]);
+
+
   if (!loading) {
     return (
-      <FeedComponent articles={articles}/>
+      <FeedComponent articles={articleIDs}/>
     );
   } else {
     return (

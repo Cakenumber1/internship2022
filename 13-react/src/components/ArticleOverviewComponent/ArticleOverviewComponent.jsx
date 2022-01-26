@@ -1,16 +1,9 @@
-import {useEffect, useState} from 'react';
+import {useState} from 'react';
+import {useSelector} from 'react-redux';
 import {Link, useLocation} from 'react-router-dom';
 
-import dataArticles from '../../fakeServer/articles.json';
-import {fetchDataWithDelay} from '../../fakeServer/fetch/fetchFunctions';
+import {articleByIDSelector} from '../../store/articles/selectors';
 
-function findByName(arr, target) {
-  for (let i = 0; i < arr.length; i++) {
-    if (arr[i].name === target) {
-      return arr[i];
-    }
-  }
-}
 
 const sArticleOverviewComponent = {
   display: 'flex',
@@ -19,23 +12,18 @@ const sArticleOverviewComponent = {
 };
 
 export default function ArticleOverviewComponent() {
-  const location = useLocation().pathname.split('/').pop();
-  const [loading, setLoading] = useState(false);
-  const [data, setData] = useState('');
-  useEffect(() => {
-    setLoading(true);
-    fetchDataWithDelay(dataArticles).then((e) => {
-      setData(findByName(e.results, location));
-      setLoading(false);
-    });
-  }, []);
+  const uniqName = useLocation().pathname.split('/').pop();
+  const {name, url} = useSelector(
+      (state) => articleByIDSelector(state, uniqName),
+  );
+  const [loading] = useState(false);
   if (!loading) {
     return (
       <div style={sArticleOverviewComponent}
       >
-        <div>{data.name}</div>
-        <div>{data.url}</div>
-        <Link to='/feed'>Back to feed</Link>
+        <div>{name}</div>
+        <div>{url}</div>
+        <Link to="/feed">Back to feed</Link>
       </div>
     );
   } else {
