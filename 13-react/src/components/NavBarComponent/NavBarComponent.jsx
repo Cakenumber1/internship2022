@@ -12,8 +12,7 @@ import {useCallback, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 
-import {logoutAction} from '../../store/actions';
-import {userSelector} from '../../store/selectors';
+import {logoutUser} from '../../store/user/slice';
 
 
 const pages = ['feed'];
@@ -72,8 +71,7 @@ const sxUserMenuMargin = {mt: '45px'};
 function NavBarComponent() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const user = useSelector(userSelector);
-  console.log(user);
+  const user = useSelector((state) => state.user);
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -95,10 +93,9 @@ function NavBarComponent() {
   }, []);
 
   const handleLogout = useCallback(() => {
-    dispatch(logoutAction());
+    dispatch(logoutUser());
     history.push('/');
   }, [history]);
-
 
   return (
     <AppBar position="static">

@@ -14,8 +14,7 @@ import RegisterComponent from './components/RegisterComponent';
 import {routes} from './constants';
 import FeedContainer from './containers/FeedContainer';
 import NotificationContainer2 from './containers/NotificationContainer';
-import {fetchData, fetchDataWithDelay} from './fakeServer/fetch/fetchFunctions';
-import {userSelector} from './store/selectors';
+import {fetchData} from './fakeServer/fetch/fetchFunctions';
 const title = 'title123';
 const content = 'contentText123';
 const author = {
@@ -25,7 +24,7 @@ const createdAt = Date().toLocaleString();
 const imageUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png';
 
 function App() {
-  const user = useSelector(userSelector);
+  const user = useSelector((state) => state.user);
   return (
     <div className="App">
       <Router>
@@ -47,7 +46,6 @@ function App() {
           />
           <CommonLayoutComponent
             exact path={routes.FEED} component={FeedContainer}
-            fetchArticles={fetchDataWithDelay}
           />
           <CommonLayoutComponent
             exact path={routes.ARTICLE} component={ArticleOverviewComponent}

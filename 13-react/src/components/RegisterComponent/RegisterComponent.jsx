@@ -3,7 +3,7 @@ import {useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {Link, useHistory} from 'react-router-dom';
 
-import {loginAction} from '../../store/actions';
+import {setUser} from '../../store/user/slice';
 
 const sForm = {
   margin: '10px',
@@ -27,7 +27,7 @@ function RegisterComponent() {
     if (username && password && password2) {
       if (password === password2) {
         console.log(username, password);
-        dispatch(loginAction(username));
+        dispatch(setUser(username));
         history.push('/');
       }
     }
