@@ -1,0 +1,19 @@
+{
+  "name": "task3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "rainbow.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/color-convert": "^2.0.0",
+    "chalk": "^5.0.0",
+    "color-convert": "^2.0.1",
+    "log-update": "^5.0.0",
+    "yoctodelay": "^2.0.0"
+  }
+}
