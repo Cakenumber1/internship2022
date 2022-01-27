@@ -1,17 +1,10 @@
-import {useEffect, useState} from 'react';
+import {useContext} from 'react';
 
+import {AuthenticationContext} from '../../context/authenticationContext';
 import NavBarComponent from '../NavBarComponent/NavBarComponent';
 
-
-function AppFunc({fetchUser}) {
-  const [user, setUser] = useState('');
-  useEffect(() => {
-    setUser(fetchUser());
-  }, [fetchUser]); // or []
-
+export default function AppFunc() {
   return (
-    <NavBarComponent user={user}/>
+    <NavBarComponent user={useContext(AuthenticationContext)[0]}/>
   );
 }
-
-export default AppFunc;

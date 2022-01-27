@@ -1,5 +1,4 @@
 import MenuIcon from '@mui/icons-material/Menu';
-import {Modal} from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -9,11 +8,12 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import {useCallback, useState} from 'react';
+import {useCallback, useContext, useState} from 'react';
+import {useHistory} from 'react-router-dom';
 
-import LoginComponent from '../LoginComponent/LoginComponent';
+import {AuthenticationContext} from '../../context/authenticationContext';
 
-const pages = ['Smth', 'Smth2'];
+const pages = ['feed'];
 const styleBL = {
   vertical: 'bottom',
   horizontal: 'left',
@@ -26,7 +26,10 @@ const styleTR = {
   vertical: 'top',
   horizontal: 'right',
 };
-let sxBlogApp;
+const sxBlogApp = {
+  mr: 2,
+  display: {xs: 'none', md: 'flex'}
+};
 const sxBlogAppM = {
   flexGrow: 1,
   display: {xs: 'flex', md: 'none'},
@@ -61,24 +64,13 @@ const sxUserMenu = {
   m: 0,
 };
 const sxUserMenuMargin = {mt: '45px'};
-const sxModal = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  p: 4,
-};
 
 
 function NavBarComponent() {
+  const history = useHistory();
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
-  const [user, setUser] = useState('');
+  const [user, setUser] = useContext(AuthenticationContext);
 
   const handleOpenNavMenu = useCallback((event) => {
     setAnchorElNav(event.currentTarget);
@@ -88,30 +80,20 @@ function NavBarComponent() {
     setAnchorElUser(event.currentTarget);
   }, []);
 
-  const handleCloseNavMenu = useCallback(() => {
+  const handleCloseNavMenu = useCallback((event) => {
     setAnchorElNav(null);
-  }, []);
+    history.push(`/${event.currentTarget.textContent}`);
+  }, [history]);
 
   const handleCloseUserMenu = useCallback(() => {
     setAnchorElUser(null);
   }, []);
 
-  const handleLogin = useCallback((username) => {
-    setUser(username);
-    setLoggedIn(true);
-  }, []);
   const handleLogout = useCallback(() => {
-    setLoggedIn(false);
-    setOpenModal(false);
-  }, []);
-  const handleOpenModal = useCallback(() => {
-    setOpenModal(true);
-  }, []);
-  const handleCloseModal = useCallback(() => {
-    setOpenModal(false);
-  }, []);
-  loggedIn ? sxBlogApp = {mr: 2, display: {xs: 'none', md: 'flex'}} :
-    sxBlogApp = {flexGrow: 1, mr: 2, display: {xs: 'none', md: 'flex'}};
+    setUser(null);
+    history.push('/');
+  }, [history]);
+
 
   return (
     <AppBar position="static">
@@ -125,7 +107,7 @@ function NavBarComponent() {
           >
             Blog App
           </Typography>
-          {loggedIn && <Box sx={sxMenuIconM}>
+          <Box sx={sxMenuIconM}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -148,13 +130,15 @@ function NavBarComponent() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center" sx={sxMenuItemM}>
+                  <Typography textAlign="center"
+                    sx={sxMenuItemM}
+                  >
                     {page}
                   </Typography>
                 </MenuItem>
               ))}
             </Menu>
-          </Box>}
+          </Box>
           <Typography
             variant="h6"
             noWrap
@@ -163,15 +147,7 @@ function NavBarComponent() {
           >
             Blog App
           </Typography>
-          {!loggedIn &&
-            <Button
-              onClick={() => {
-                handleOpenModal();
-                handleCloseUserMenu();
-              }}
-              color="inherit">Login
-            </Button>}
-          {loggedIn && <Box sx={sxMenuItem}>
+          <Box sx={sxMenuItem}>
             {pages.map((page) => (
               <Button
                 key={page}
@@ -181,8 +157,8 @@ function NavBarComponent() {
                 {page}
               </Button>
             ))}
-          </Box>}
-          {loggedIn && <Box>
+          </Box>
+          <Box>
             <Button
               onClick={handleOpenUserMenu}
               sx={sxUserMenu}
@@ -199,29 +175,15 @@ function NavBarComponent() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              <MenuItem onClick={handleLogout}>
-                <Typography
-                  textAlign="center">Logout</Typography>
+              <MenuItem>
+                <Button textalign="center" onClick={handleLogout}>
+                  Logout
+                </Button>
               </MenuItem>
             </Menu>
-          </Box>}
+          </Box>
         </Toolbar>
       </Container>
-      {!loggedIn && <Modal
-        open={openModal}
-        onClose={handleCloseModal}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box
-          sx={sxModal}
-        >
-          <Typography id="modal-modal-title" variant="h6">
-            Login
-          </Typography>
-          <LoginComponent handleLogin={handleLogin}/>
-        </Box>
-      </Modal>}
     </AppBar>
   );
 }

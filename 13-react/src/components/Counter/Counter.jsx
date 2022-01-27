@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import {useState} from 'react';
 
 function Counter() {
-  let [counter, setCounter] = useState(0)
+  let [counter, setCounter] = useState(0);
   return (
     <div className="Counter">
       <div>{counter}</div>

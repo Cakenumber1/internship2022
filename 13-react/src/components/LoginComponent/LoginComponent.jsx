@@ -1,39 +1,40 @@
-import {useCallback, useState} from 'react';
+import {TextField} from '@mui/material';
+import {useCallback, useContext, useState} from 'react';
+import {Link, useHistory} from 'react-router-dom';
 
-import css from '../LoginComponent/LoginComponent.module.scss';
+import {AuthenticationContext} from '../../context/authenticationContext';
 
-function LoginComponent({handleLogin}) {
+const sForm = {
+  margin: '20px',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
+const sxMb10 = {marginBottom: '10px'};
+
+function LoginComponent() {
+  const history = useHistory();
+  const setUser = useContext(AuthenticationContext)[1];
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = useCallback((_event) => {
     _event.preventDefault();
-    handleLogin(username, password);
-  }, [handleLogin, password, username]);
+    console.log(username, password);
+    setUser(username);
+    history.push('/');
+  }, [password, username]);
 
   return (
-    <form className={css.LoginComponent}>
-      <table>
-        <tbody>
-          <tr>
-            <td className={css.login}>login</td>
-            <td>
-              <input name="login" type="text"
-                onChange={(event) => setUsername(event.target.value)}
-              />
-            </td>
-          </tr>
-          <tr>
-            <td className={css.password}>password</td>
-            <td>
-              <input name="password" type="password"
-                onChange={(event) => setPassword(event.target.value)}
-              />
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <button className={css.button} onClick={handleSubmit}>Submit</button>
+    <form style={sForm}
+    >
+      <TextField sx={sxMb10} label="Login*" type="text"
+        onChange={(event) => setUsername(event.target.value)}/>
+      <TextField sx={sxMb10} label="Password*" type="password"
+        onChange={(event) => setPassword(event.target.value)}/>
+      <button onClick={handleSubmit}>Submit</button>
+      <Link to="/register">Register</Link>
     </form>
   );
 }
