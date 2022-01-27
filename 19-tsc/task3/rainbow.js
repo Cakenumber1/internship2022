@@ -24,7 +24,7 @@ function rainbow(string, offset) {
             characters.push(character);
         }
         else {
-            characters.push(chalk.hex(convertColor.hsl.hex(hue, 100, 50))(character));
+            characters.push(chalk.hex(convertColor.hsl.hex([hue, 100, 50]))(character));
             hue = (hue + hueStep) % 360;
         }
     }
