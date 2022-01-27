@@ -63,7 +63,8 @@ const sxMenuItemButton = {
 const sxUserMenu = {
   my: 2,
   color: 'white',
-  display: 'block',
+  display: 'flex',
+  flexDirection: 'column',
   m: 0,
 };
 const sxUserMenuMargin = {mt: '45px'};
@@ -73,7 +74,6 @@ function NavBarComponent() {
   const history = useHistory();
   const dispatch = useDispatch();
   const user = useSelector(userSelector);
-  console.log(user);
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
@@ -97,6 +97,10 @@ function NavBarComponent() {
   const handleLogout = useCallback(() => {
     dispatch(logoutAction());
     history.push('/');
+  }, [history]);
+
+  const handleOpenProfile = useCallback(() => {
+    history.push('/profile');
   }, [history]);
 
 
@@ -180,6 +184,11 @@ function NavBarComponent() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
+              <MenuItem>
+                <Button textalign="center" onClick={handleOpenProfile}>
+                  Profile
+                </Button>
+              </MenuItem>
               <MenuItem>
                 <Button textalign="center" onClick={handleLogout}>
                   Logout

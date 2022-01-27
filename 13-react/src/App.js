@@ -11,6 +11,7 @@ import LoginComponent from './components/LoginComponent';
 import NavBarComponent from './components/NavBarComponent';
 import NotFoundPageComponent from './components/NotFoundPageComponent';
 import RegisterComponent from './components/RegisterComponent';
+import UserProfileComponent from './components/UserProfileComponent';
 import {routes} from './constants';
 import FeedContainer from './containers/FeedContainer';
 import NotificationContainer2 from './containers/NotificationContainer';
@@ -48,6 +49,9 @@ function App() {
           <CommonLayoutComponent
             exact path={routes.FEED} component={FeedContainer}
             fetchArticles={fetchDataWithDelay}
+          />
+          <CommonLayoutComponent
+            exact path={routes.PROFILE} component={UserProfileComponent}
           />
           <CommonLayoutComponent
             exact path={routes.ARTICLE} component={ArticleOverviewComponent}

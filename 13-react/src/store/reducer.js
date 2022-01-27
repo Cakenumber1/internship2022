@@ -7,16 +7,24 @@ function updateUserReducer(state = '', action) {
 }
 
 export function rootReducer(state = initialState, action) {
-  if (action.type === 'user.LOGIN') {
-    return {
-      ...state,
-      user: updateUserReducer(state.user, action),
-    };
-  } else if (action.type === 'user.LOGOUT') {
-    return {
-      ...state,
-      user: updateUserReducer(state.user, action),
-    };
+  switch (action.type) {
+    case ('user.LOGIN'):
+      return {
+        ...state,
+        user: updateUserReducer(state.user, action),
+      };
+    case ('user.RENAME'):
+      return {
+        ...state,
+        user: updateUserReducer(state.user, action),
+      };
+    case ('user.LOGOUT'):
+      return {
+        ...state,
+        user: updateUserReducer(state.user, action),
+      };
   }
   return state;
 }
+
+

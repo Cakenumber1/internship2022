@@ -26,7 +26,6 @@ function RegisterComponent() {
     e.preventDefault();
     if (username && password && password2) {
       if (password === password2) {
-        console.log(username, password);
         dispatch(loginAction(username));
         history.push('/');
       }

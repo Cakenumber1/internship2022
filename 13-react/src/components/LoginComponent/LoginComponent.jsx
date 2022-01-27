@@ -22,7 +22,6 @@ function LoginComponent() {
 
   const handleSubmit = useCallback((_event) => {
     _event.preventDefault();
-    console.log(username, password);
     dispatch(loginAction(username));
     history.push('/');
   }, [password, username]);
