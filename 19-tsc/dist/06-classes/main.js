@@ -68,3 +68,4 @@ const k = new Cuboid(3, 5, 6);
 console.log(k.surfaceArea);
 const k2 = new Cube(4);
 console.log(k2.surfaceArea);
+//# sourceMappingURL=main.js.map

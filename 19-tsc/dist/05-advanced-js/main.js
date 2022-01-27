@@ -32,3 +32,4 @@ thirdTest('asfdada');
 thirdTest('avcxx');
 thirdTest('123');
 console.log(thirdTest()); // [ 'asfdada', 'avcxx', '123' ]
+//# sourceMappingURL=main.js.map

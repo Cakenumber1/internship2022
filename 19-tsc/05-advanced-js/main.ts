@@ -16,8 +16,8 @@ console.log(firstTest2()); // 9
 console.log(firstTest2()); // 15
 
 function container() {
-  const content: any[] = [];
-  return (...args : any[]) => {
+  const content: string[] = [];
+  return (...args : string[]) => {
     if (args.length === 0) {
       return content;
     } else {

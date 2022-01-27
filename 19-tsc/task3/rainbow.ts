@@ -6,7 +6,7 @@ import delay from 'yoctodelay';
 const ignoreChars = /[^!-~]/g;
 
 function rainbow(string: string, offset: number) {
-  if (!string || string.length === 0) {
+  if (string.length === 0) {
     return string;
   }
 
@@ -38,6 +38,6 @@ async function animateString(string: string) {
 
 (async () => {
   console.log();
-  await animateString('We hope you enjoy Chalk! <3');
+  await animateString('hello');
   console.log();
 })();
