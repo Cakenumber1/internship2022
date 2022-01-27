@@ -19,8 +19,6 @@ function rainbow(string : string, offset : number) {
     if (ignoreChars.test(character)) {
       characters.push(character);
     } else {
-      // @ts-ignore
-      // Scope:Non-Project Files
       characters.push(chalk.hex(convertColor.hsl.hex(hue, 100, 50))(character));
       hue = (hue + hueStep) % 360;
     }
