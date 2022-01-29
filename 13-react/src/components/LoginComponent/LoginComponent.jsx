@@ -1,8 +1,9 @@
 import {TextField} from '@mui/material';
-import {useCallback, useContext, useState} from 'react';
+import {useCallback, useState} from 'react';
+import {useDispatch} from 'react-redux';
 import {Link, useHistory} from 'react-router-dom';
 
-import {AuthenticationContext} from '../../context/authenticationContext';
+import {loginAction} from '../../store/actions';
 
 const sForm = {
   margin: '20px',
@@ -15,14 +16,13 @@ const sxMb10 = {marginBottom: '10px'};
 
 function LoginComponent() {
   const history = useHistory();
-  const setUser = useContext(AuthenticationContext)[1];
+  const dispatch = useDispatch();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const handleSubmit = useCallback((_event) => {
     _event.preventDefault();
-    console.log(username, password);
-    setUser(username);
+    dispatch(loginAction(username));
     history.push('/');
   }, [password, username]);
 

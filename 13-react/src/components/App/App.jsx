@@ -1,10 +1,10 @@
-import {useContext} from 'react';
+import {useSelector} from 'react-redux';
 
-import {AuthenticationContext} from '../../context/authenticationContext';
+import {userSelector} from '../../store/selectors';
 import NavBarComponent from '../NavBarComponent/NavBarComponent';
 
 export default function AppFunc() {
   return (
-    <NavBarComponent user={useContext(AuthenticationContext)[0]}/>
+    <NavBarComponent user={useSelector(userSelector)}/>
   );
 }

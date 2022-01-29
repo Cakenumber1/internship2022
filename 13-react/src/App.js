@@ -1,6 +1,6 @@
 import './App.css';
 
-import {useState} from 'react';
+import {useSelector} from 'react-redux';
 import {BrowserRouter as Router, Redirect, Route, Switch}
   from 'react-router-dom';
 
@@ -11,11 +11,12 @@ import LoginComponent from './components/LoginComponent';
 import NavBarComponent from './components/NavBarComponent';
 import NotFoundPageComponent from './components/NotFoundPageComponent';
 import RegisterComponent from './components/RegisterComponent';
+import UserProfileComponent from './components/UserProfileComponent';
 import {routes} from './constants';
 import FeedContainer from './containers/FeedContainer';
 import NotificationContainer2 from './containers/NotificationContainer';
-import {AuthenticationContext} from './context/authenticationContext';
 import {fetchData, fetchDataWithDelay} from './fakeServer/fetch/fetchFunctions';
+import {userSelector} from './store/selectors';
 const title = 'title123';
 const content = 'contentText123';
 const author = {
@@ -23,10 +24,11 @@ const author = {
 };
 const createdAt = Date().toLocaleString();
 const imageUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png';
+
 function App() {
-  const [user, setUser] = useState('Oleg');
+  const user = useSelector(userSelector);
   return (
-    <AuthenticationContext.Provider value={[user, setUser]} className="App">
+    <div className="App">
       <Router>
         {user ? <NavBarComponent/> : null}
         <Switch>
@@ -49,6 +51,9 @@ function App() {
             fetchArticles={fetchDataWithDelay}
           />
           <CommonLayoutComponent
+            exact path={routes.PROFILE} component={UserProfileComponent}
+          />
+          <CommonLayoutComponent
             exact path={routes.ARTICLE} component={ArticleOverviewComponent}
             title={title}
             content={content}
@@ -61,7 +66,7 @@ function App() {
       </Router>
       {user ?
         <NotificationContainer2 fetchNotifications={fetchData}/> : null}
-    </AuthenticationContext.Provider>);
+    </div>);
 }
 
 export default App;

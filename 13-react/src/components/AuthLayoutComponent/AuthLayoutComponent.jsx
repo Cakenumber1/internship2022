@@ -1,14 +1,14 @@
-import {useContext} from 'react';
+import {useSelector} from 'react-redux';
 import {Redirect, Route} from 'react-router-dom';
 
 import {routes} from '../../constants';
-import {AuthenticationContext} from '../../context/authenticationContext';
+import {userSelector} from '../../store/selectors';
 
 const AuthLayoutComponent = ({
   component: Component,
   ...restProps
 }) => {
-  const user = useContext(AuthenticationContext)[0];
+  const user = useSelector(userSelector);
   if (user) {
     return <Redirect to={routes.FEED}/>;
   }

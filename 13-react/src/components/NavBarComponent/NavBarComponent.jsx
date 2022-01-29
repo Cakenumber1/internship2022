@@ -8,10 +8,13 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import {useCallback, useContext, useState} from 'react';
+import {useCallback, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom';
 
-import {AuthenticationContext} from '../../context/authenticationContext';
+import {logoutAction} from '../../store/actions';
+import {userSelector} from '../../store/selectors';
+
 
 const pages = ['feed'];
 const styleBL = {
@@ -28,7 +31,7 @@ const styleTR = {
 };
 const sxBlogApp = {
   mr: 2,
-  display: {xs: 'none', md: 'flex'}
+  display: {xs: 'none', md: 'flex'},
 };
 const sxBlogAppM = {
   flexGrow: 1,
@@ -60,7 +63,8 @@ const sxMenuItemButton = {
 const sxUserMenu = {
   my: 2,
   color: 'white',
-  display: 'block',
+  display: 'flex',
+  flexDirection: 'column',
   m: 0,
 };
 const sxUserMenuMargin = {mt: '45px'};
@@ -68,9 +72,10 @@ const sxUserMenuMargin = {mt: '45px'};
 
 function NavBarComponent() {
   const history = useHistory();
+  const dispatch = useDispatch();
+  const user = useSelector(userSelector);
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
-  const [user, setUser] = useContext(AuthenticationContext);
 
   const handleOpenNavMenu = useCallback((event) => {
     setAnchorElNav(event.currentTarget);
@@ -90,8 +95,12 @@ function NavBarComponent() {
   }, []);
 
   const handleLogout = useCallback(() => {
-    setUser(null);
+    dispatch(logoutAction());
     history.push('/');
+  }, [history]);
+
+  const handleOpenProfile = useCallback(() => {
+    history.push('/profile');
   }, [history]);
 
 
@@ -175,6 +184,11 @@ function NavBarComponent() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
+              <MenuItem>
+                <Button textalign="center" onClick={handleOpenProfile}>
+                  Profile
+                </Button>
+              </MenuItem>
               <MenuItem>
                 <Button textalign="center" onClick={handleLogout}>
                   Logout
