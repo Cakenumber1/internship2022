@@ -13,15 +13,15 @@ function readAndWriteLocal(from, to) {
 }
 
 function readAndWriteWeb(from, to) {
-  const server = http.createServer((req, res) => {
-    let body = '';
+  const server = http.createServer(async (req, res) => {
     if (req.method === 'POST') {
-      req.on('data', () => {
-        body+= fs.readFileSync(from, 'utf-8');
-      });
-      req.on('end', async () => {
-        await write(to, body);
-        res.end('done');
+      await fs.readFile(from, 'utf-8', async (err, data) => {
+        if (err) {
+          res.end(err.toString());
+        } else {
+          await write(to, data);
+          res.end('done');
+        }
       });
     } else {
       res.end('wrong method');
