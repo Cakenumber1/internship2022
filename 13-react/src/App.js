@@ -1,7 +1,6 @@
 import './App.css';
 
-import {useEffect} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 import {BrowserRouter as Router, Redirect, Route, Switch}
   from 'react-router-dom';
 
@@ -17,7 +16,8 @@ import {routes} from './constants';
 import FeedContainer from './containers/FeedContainer';
 import NotificationContainer2 from './containers/NotificationContainer';
 import {fetchData} from './fakeServer/fetch/fetchFunctions';
-import {fetchArticlesThunk} from './store/articles/thunks';
+import NewArticleComponent from "./components/NewArticleComponent";
+
 const title = 'title123';
 const content = 'contentText123';
 const author = {
@@ -27,10 +27,6 @@ const createdAt = Date().toLocaleString();
 const imageUrl = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png';
 
 function App() {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchArticlesThunk());
-  }, []);
   const user = useSelector((state) => state.user);
   return (
     <div className="App">
@@ -56,6 +52,9 @@ function App() {
           />
           <CommonLayoutComponent
             exact path={routes.PROFILE} component={UserProfileComponent}
+          />
+          <CommonLayoutComponent
+            exact path={routes.CREATEARTICLE} component={NewArticleComponent}
           />
           <CommonLayoutComponent
             exact path={routes.ARTICLE} component={ArticleOverviewComponent}

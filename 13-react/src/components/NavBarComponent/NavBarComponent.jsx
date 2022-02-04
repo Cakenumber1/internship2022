@@ -15,7 +15,7 @@ import {useHistory} from 'react-router-dom';
 import {logoutUser} from '../../store/user/slice';
 
 
-const pages = ['feed'];
+const pages = ['feed', 'new article'];
 const styleBL = {
   vertical: 'bottom',
   horizontal: 'left',

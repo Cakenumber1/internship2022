@@ -11,7 +11,7 @@ export const articlesSlice = createSlice({
   name: 'articles',
   extraReducers: (builder) => {
     builder.addCase(fetchArticlesThunk.fulfilled, (state, action) => {
-      articlesEntityAdapter.setAll(state, action.payload.results);
+      articlesEntityAdapter.setAll(state, action.payload);
     });
   },
 });
