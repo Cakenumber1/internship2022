@@ -1,5 +1,14 @@
-import {createStore} from 'redux';
+import {configureStore} from '@reduxjs/toolkit';
 
-import {rootReducer} from './reducer';
+import {articlesReducer} from './articles/slice';
+import {userReducer} from './user/slice';
 
-export const store = createStore(rootReducer);
+export const store = configureStore({
+  reducer: {
+    user: userReducer,
+    articles: articlesReducer,
+  },
+  preloadedState: {
+    user: 'Oleg',
+  },
+});

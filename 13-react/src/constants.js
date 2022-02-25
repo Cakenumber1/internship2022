@@ -4,4 +4,5 @@ export const routes = {
   PROFILE: '/profile',
   FEED: '/feed',
   ARTICLE: '/article/:id',
+  CREATEARTICLE: '/new article',
 };

@@ -3,7 +3,7 @@ import {useCallback, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {Link, useHistory} from 'react-router-dom';
 
-import {loginAction} from '../../store/actions';
+import {setUser} from '../../store/user/slice';
 
 const sForm = {
   margin: '20px',
@@ -22,7 +22,7 @@ function LoginComponent() {
 
   const handleSubmit = useCallback((_event) => {
     _event.preventDefault();
-    dispatch(loginAction(username));
+    dispatch(setUser(username));
     history.push('/');
   }, [password, username]);
 
